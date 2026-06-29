@@ -6,310 +6,244 @@
 <title>PAWkids — 毛孩飼主交流與健康照護 App</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#143a30;--ink-soft:#5e7069;--ink-faint:#9aa9a1;
-  --pink1:#ff9d8f;--pink2:#f4685c;
-  --blue1:#bfe0f5;--blue2:#5fb0e0;
-  --lav1:#cabcf6;--lav2:#8b7bf5;
-  --mint1:#7fd2c0;--mint2:#15a088;
-  --peach1:#ffd49a;--peach2:#f5912e;
-  --amber:#ffce5c;
-  --primary:#15a088;--coral:#f4685c;--orange:#f5912e;--purple:#8b7bf5;
-  --card:#fffdf8;--line:#ece6d8;
-  --shadow:0 14px 34px -16px rgba(20,40,32,.2);--shadow-sm:0 8px 20px -12px rgba(20,40,32,.18);
-  --radius:28px;--r-btn:20px;--r-chip:14px;
-  font-family:"Noto Sans TC",system-ui,sans-serif;
+  --health-green:#35B89F;--success-green:#41DF82;--mint-bg:#DDF7F0;
+  --pet-pink:#FF7FEC;--soft-pink:#FFE1F8;
+  --food-orange:#FF7A1A;--soft-orange:#FFE3D4;
+  --care-purple:#694AFF;--soft-purple:#E8E3FF;
+  --water-blue:#55C7FF;--soft-blue:#E2F6FF;
+  --alert-red:#FF4D4F;--warning-yellow:#FFD166;
+  --dark:#141414;--white:#fff;--cream:#FFF8EA;
+  --text:#1F2A2A;--muted:#7A8A8A;
+  --line:#EEF1F0;
+  --shadow:0 12px 30px -14px rgba(31,42,42,.18);--shadow-sm:0 6px 16px -10px rgba(31,42,42,.18);
+  --r-chip:14px;--r-btn:22px;--r-card:28px;
+  font-family:"Nunito",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{min-height:100vh;color:var(--ink);-webkit-font-smoothing:antialiased;
+body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
   display:flex;flex-direction:column;align-items:center;gap:14px;padding:30px 16px 50px;
-  background:linear-gradient(165deg,#fdf3e3 0%,#fce7ea 50%,#fff6db 100%);background-attachment:fixed}
-.doodle{position:fixed;inset:0;z-index:-1;opacity:.5;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' opacity='.7'%3E%3Cpath d='M30 30l0 12M24 36l12 0'/%3E%3Cpath d='M180 60l0 10M175 65l10 0'/%3E%3Cpath d='M150 160c4-4 8-4 12 0'/%3E%3Cpath d='M50 170l0 10M45 175l10 0'/%3E%3Ccircle cx='120' cy='110' r='3'/%3E%3C/g%3E%3C/svg%3E");}
-
-.caption{text-align:center;color:var(--ink-soft)}
-.caption .logo{font-family:"Baloo 2";font-size:30px;color:var(--ink);letter-spacing:.5px}
-.caption .logo b{color:var(--pink2)}
+  background:linear-gradient(165deg,#fff4f0,#e9f8f3 55%,#fff8ea)}
+.caption{text-align:center;color:var(--muted)}
+.caption .logo{font-size:30px;font-weight:900;color:var(--text)}
+.caption .logo b{color:var(--health-green)}
 .caption p{font-size:13px;margin-top:2px}
 
 /* phone */
-.phone{position:relative;width:392px;max-width:100%;height:812px;border-radius:54px;padding:13px;
-  background:#16161a;box-shadow:0 44px 90px -34px rgba(20,20,30,.6),0 0 0 1px rgba(255,255,255,.08) inset;flex-shrink:0}
-.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#fbf5ea}
-.notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:108px;height:26px;background:#16161a;border-radius:99px;z-index:60}
-.statusbar{position:absolute;top:0;left:0;right:0;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:13px;font-weight:700;color:var(--ink);z-index:55}
-.viewport{position:absolute;top:46px;left:0;right:0;bottom:84px;overflow-y:auto;padding:6px 16px 26px;scroll-behavior:smooth}
+.phone{position:relative;width:393px;max-width:100%;height:852px;border-radius:54px;padding:12px;
+  background:#0e0e0e;box-shadow:0 44px 90px -34px rgba(20,20,20,.55),0 0 0 1px rgba(255,255,255,.06) inset;flex-shrink:0}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:var(--cream)}
+.notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:108px;height:26px;background:#0e0e0e;border-radius:99px;z-index:60}
+.statusbar{position:absolute;top:0;left:0;right:0;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:13px;font-weight:800;color:var(--text);z-index:55}
+.viewport{position:absolute;top:46px;left:0;right:0;bottom:92px;overflow-y:auto;padding:8px 22px 30px;scroll-behavior:smooth}
 .viewport::-webkit-scrollbar{width:0}
 
-/* tab bar : black floating, white icons, active white circle */
-.tabbar{position:absolute;bottom:14px;left:16px;right:16px;height:64px;z-index:40;display:flex;justify-content:space-around;align-items:center;
-  background:#143a30;border-radius:30px;box-shadow:0 18px 38px -14px rgba(20,40,32,.5);padding:0 6px}
-.tabbar button{border:none;background:transparent;font-family:inherit;cursor:pointer;flex:1;display:grid;place-items:center;padding:0}
-.tabbar button .ic{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;transition:.25s}
-.tabbar button .ic svg{width:23px;height:23px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
-.tabbar button.active .ic{background:#fff;transform:translateY(-1px)}
-.tabbar button.active .ic svg{stroke:#143a30}
+/* bottom nav */
+.navwrap{position:absolute;bottom:16px;left:18px;right:18px;height:64px;z-index:40}
+.tabbar{position:absolute;inset:0;display:flex;justify-content:space-around;align-items:center;
+  background:var(--dark);border-radius:30px;box-shadow:0 18px 36px -14px rgba(20,20,20,.5);padding:0 8px}
+.tabbar button{border:none;background:transparent;font-family:inherit;cursor:pointer;flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;color:#7c8784;font-size:9.5px;font-weight:800;transition:.2s;padding:0}
+.tabbar button svg{width:22px;height:22px;stroke:#7c8784;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
+.tabbar button.active{color:var(--white)}
+.tabbar button.active svg{stroke:var(--success-green)}
+.tabbar .navgap{flex:1.2}
+.addbtn{position:absolute;left:50%;top:-22px;transform:translateX(-50%);width:60px;height:60px;border-radius:50%;border:4px solid var(--cream);cursor:pointer;z-index:42;
+  background:linear-gradient(140deg,var(--success-green),var(--health-green));color:#fff;font-size:30px;display:grid;place-items:center;
+  box-shadow:0 14px 26px -8px rgba(53,184,159,.7)}
+.addbtn:hover{transform:translateX(-50%) translateY(-3px)}
+.addbtn span{font-weight:700;margin-top:-2px}
+.addlbl{position:absolute;left:50%;top:42px;transform:translateX(-50%);font-size:9.5px;font-weight:800;color:var(--success-green);z-index:42}
 
-.fab{position:absolute;bottom:90px;right:20px;width:54px;height:54px;border-radius:18px;border:none;cursor:pointer;z-index:45;
-  background:var(--primary);color:#fff;font-size:27px;box-shadow:0 16px 28px -10px rgba(21,160,136,.6);transition:.25s}
-.fab:hover{transform:translateY(-3px) rotate(90deg)}
-
+/* views */
 .view{display:none;animation:fade .4s ease}
 .view.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
 /* greeting */
-.greet{display:flex;align-items:center;gap:11px;margin:6px 2px 16px}
-.greet .av{width:44px;height:44px;border-radius:50%;overflow:hidden;background:#eee;flex-shrink:0;border:2px solid #fff;box-shadow:var(--shadow-sm)}
+.greet{display:flex;align-items:center;gap:12px;margin:4px 0 18px}
+.greet .av{width:46px;height:46px;border-radius:50%;overflow:hidden;background:#eee;flex-shrink:0;border:2px solid #fff;box-shadow:var(--shadow-sm)}
+.greet .av img{width:100%;height:100%;object-fit:cover;display:block}
 .greet .gt{flex:1}
-.greet .gt b{font-size:16px;font-weight:900}
-.greet .gt small{display:block;font-size:12px;color:var(--ink-faint)}
-.greet .bell{width:42px;height:42px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:18px;box-shadow:var(--shadow-sm);cursor:pointer;position:relative}
-.greet .bell::after{content:"";position:absolute;top:11px;right:12px;width:7px;height:7px;border-radius:50%;background:var(--pink2)}
+.greet .gt b{font-size:18px;font-weight:900}
+.greet .gt small{display:block;font-size:12.5px;color:var(--muted);font-weight:600}
+.bell{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:18px;box-shadow:var(--shadow-sm);cursor:pointer;position:relative}
+.bell::after{content:"";position:absolute;top:12px;right:13px;width:8px;height:8px;border-radius:50%;background:var(--alert-red);border:2px solid #fff}
 
-.eyebrow{font-size:11px;letter-spacing:2px;color:var(--ink-faint);font-weight:700}
-.h2big{font-family:"Baloo 2";font-size:25px;font-weight:800;margin-top:2px}
-.head{display:flex;align-items:center;justify-content:space-between;margin:6px 2px 16px}
-.head .av{width:42px;height:42px;border-radius:14px;overflow:hidden;background:#eee;box-shadow:var(--shadow-sm)}
-.head .av.solid{display:grid;place-items:center;background:linear-gradient(140deg,var(--lav1),var(--pink1));color:#fff;font-weight:800}
-
-/* cards */
-.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px;margin-bottom:14px}
-.card h3{font-size:15.5px;font-weight:900;display:flex;align-items:center;gap:8px}
-.sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 12px}
 .sec-h h3{font-size:18px;font-weight:900}
-.sec-h .more{font-size:12px;color:var(--pink2);font-weight:800;cursor:pointer}
-.sec-title{font-size:18px;font-weight:900;margin:4px 2px 12px}
+.sec-h .more{font-size:13px;color:var(--health-green);font-weight:800;cursor:pointer}
+.pagetitle{font-size:26px;font-weight:900;margin:2px 2px 4px}
+.pagesub{font-size:13px;color:var(--muted);font-weight:600;margin:0 2px 14px}
 
-.btn{border:none;border-radius:20px;cursor:pointer;font-family:inherit;font-weight:800;transition:.2s;font-size:13.5px}
+.card{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:18px;margin-bottom:16px}
+.btn{border:none;border-radius:var(--r-btn);cursor:pointer;font-family:inherit;font-weight:800;transition:.2s;font-size:14px}
 .btn:active{transform:scale(.97)}
-.btn.cor{background:var(--primary);color:#fff;padding:13px 18px}
-.btn.dark{background:var(--ink);color:#fff;padding:13px 18px}
-.btn.ghost{background:#f4f3f7;color:var(--ink-soft);padding:11px 16px}
-.btn.block{width:100%;display:block;text-align:center;padding:14px}
+.btn.green{background:var(--health-green);color:#fff;padding:14px 20px}
+.btn.block{width:100%;display:block;text-align:center;padding:15px}
+.btn.ghost{background:#f2f5f4;color:var(--text);padding:12px 18px}
 
-.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800}
-.t-vax{background:rgba(47,148,136,.14);color:var(--mint2)}
-.t-med{background:rgba(155,135,232,.16);color:var(--lav2)}
-.t-vet{background:rgba(242,96,125,.14);color:var(--pink2)}
-.t-w{background:rgba(242,169,60,.18);color:var(--peach2)}
+/* hero reminder (home focus) */
+.hero{border-radius:var(--r-card);padding:22px;margin-bottom:16px;color:#063b33;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,#5fe0c4,var(--health-green))}
+.hero .tagrow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.hero .pill{background:rgba(255,255,255,.85);color:#0a5247;font-size:11px;font-weight:900;padding:5px 12px;border-radius:999px}
+.hero h2{font-size:24px;font-weight:900;line-height:1.2;color:#fff}
+.hero p{font-size:13px;color:rgba(255,255,255,.9);font-weight:700;margin-top:6px}
+.hero .cta{margin-top:16px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--health-green);font-weight:900;font-size:13.5px;padding:11px 18px;border-radius:var(--r-btn);border:none;cursor:pointer}
+.hero .emoji{position:absolute;right:16px;bottom:14px;font-size:60px;opacity:.95;filter:drop-shadow(0 6px 8px rgba(0,0,0,.15))}
 
-.avwrap{overflow:hidden;background:#eee}
-.imground{width:100%;height:100%;object-fit:cover;display:block}
-
-/* ===== HOME ===== */
-.hero{border-radius:30px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden;background:#cfeae2}
-.hero .ptag{display:inline-block;background:rgba(28,28,34,.85);color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px}
-.hero .htitle{font-family:"Baloo 2";font-size:26px;font-weight:800;line-height:1.15;margin:12px 0 14px;max-width:65%}
-.hero .hrow{display:flex;align-items:center;gap:10px}
-.hero .stack{display:flex}
-.hero .stack span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:16px;background:#fff;margin-left:-8px;border:2px solid #cfeae2;box-shadow:0 2px 6px rgba(0,0,0,.12)}
-.hero .stack span:first-child{margin-left:0}
-.hero .harrow{margin-left:auto;width:42px;height:42px;border-radius:50%;border:none;background:var(--ink);color:#fff;font-size:19px;cursor:pointer}
-.hero .h3d{position:absolute;right:14px;top:14px;font-size:42px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.15))}
-
-.weekstrip{display:flex;gap:6px;margin-bottom:18px}
-.wday{flex:1;text-align:center;padding:9px 0 8px;border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);font-size:11px;color:var(--ink-faint);font-weight:700;cursor:pointer;position:relative;transition:.2s}
-.wday b{display:block;font-size:15px;margin-top:3px;color:var(--ink);font-weight:800}
-.wday.on{background:var(--ink)}
-.wday.on,.wday.on b{color:#fff}
-.wday .wdot{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:var(--pink2)}
-
-.petrow{display:flex;gap:11px;overflow-x:auto;padding:2px 0 12px}
+/* pets row */
+.petrow{display:flex;gap:12px;overflow-x:auto;padding:2px 0 12px}
 .petrow::-webkit-scrollbar{height:0}
-.petcard{flex-shrink:0;width:148px;border-radius:22px;padding:13px;display:flex;gap:11px;align-items:center;cursor:pointer;transition:.2s}
-.petcard:active{transform:scale(.98)}
-.petcard .pcph{width:52px;height:52px;border-radius:16px;flex-shrink:0;border:2px solid rgba(255,255,255,.7)}
-.petcard b{font-size:14.5px;font-weight:800;display:block}
-.petcard small{font-size:11px;color:rgba(28,28,34,.6)}
-.petcard .nextpill{display:inline-block;margin-top:5px;background:rgba(28,28,34,.82);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:999px}
+.petcard{flex-shrink:0;width:96px;border-radius:24px;background:#fff;box-shadow:var(--shadow-sm);padding:12px 8px;text-align:center;cursor:pointer;transition:.2s;border:2px solid transparent}
+.petcard.sel{border-color:var(--health-green)}
+.petcard:active{transform:scale(.97)}
+.petcard .ph{width:60px;height:60px;border-radius:20px;margin:0 auto 8px;overflow:hidden;background:#eee}
+.petcard .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.petcard b{font-size:13.5px;font-weight:800;display:block}
+.petcard small{font-size:10.5px;color:var(--muted);font-weight:700}
+.petcard.add{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--health-green);border:2px dashed #c9ded8;background:transparent}
+.petcard.add .plus{font-size:26px;font-weight:800}
 
-.plangrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.plan{border-radius:22px;padding:15px;cursor:pointer;transition:.2s;position:relative;min-height:128px;display:flex;flex-direction:column}
-.plan:active{transform:scale(.98)}
-.plan .ptag{align-self:flex-start;background:rgba(255,255,255,.75);font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:999px}
-.plan .pemoji{font-size:28px;margin:6px 0 auto}
-.plan b{font-size:15px;font-weight:900;margin-top:8px}
-.plan small{font-size:11px;color:rgba(28,28,34,.62);margin-top:2px}
-.datacards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.dcard{border-radius:20px;padding:13px 12px;color:#fff}
-.dcard .di{font-size:16px}
-.dcard .dn{font-family:"Baloo 2";font-size:24px;font-weight:800;line-height:1;margin-top:6px}
-.dcard .dl{font-size:11px;opacity:.95;margin-top:3px;font-weight:700}
-.wbars{display:flex;align-items:flex-end;gap:7px;height:120px;margin-top:6px}
-.wbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%}
-.wbar .bk{width:100%;flex:1;display:flex;align-items:flex-end}
-.wbar .bar{width:100%;border-radius:9px;background:linear-gradient(180deg,var(--mint1),var(--mint2))}
-.wbar small{font-size:10px;color:var(--ink-faint);font-weight:700}
+/* reminder rows */
+.rem{display:flex;align-items:center;gap:12px;padding:13px;border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:12px}
+.rem .dot{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.rem b{font-size:14.5px;font-weight:800}.rem small{font-size:12px;color:var(--muted);display:block;margin-top:1px;font-weight:600}
+.rem .when{margin-left:auto;text-align:right;font-size:11.5px;font-weight:900;flex-shrink:0;line-height:1.5}
+.d-green{background:var(--mint-bg);color:var(--health-green)}
+.d-blue{background:var(--soft-blue);color:var(--water-blue)}
+.d-purple{background:var(--soft-purple);color:var(--care-purple)}
+.d-orange{background:var(--soft-orange);color:var(--food-orange)}
+.d-pink{background:var(--soft-pink);color:var(--pet-pink)}
 
-/* rows */
-.rem{display:flex;align-items:center;gap:11px;padding:11px;border-radius:16px;background:#faf9fc;margin-bottom:9px;transition:.2s}
-.rem:active{transform:scale(.98)}
-.rem b{font-size:13.5px;font-weight:800}.rem small{font-size:11.5px;color:var(--ink-faint);display:block;margin-top:1px}
-.rem .when{margin-left:auto;text-align:right;font-size:11px;font-weight:800;color:var(--pink2);flex-shrink:0;line-height:1.5}
-.dot{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;font-size:18px;flex-shrink:0;color:#fff}
-.tile-vax{background:var(--mint2)}.tile-med{background:var(--lav2)}.tile-vet{background:var(--pink2)}.tile-care{background:var(--peach2)}.tile-w{background:var(--blue2)}
+/* health: score ring + metrics */
+.scorecard{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:22px;margin-bottom:16px;text-align:center}
+.scorecard .ring{position:relative;width:170px;height:170px;margin:6px auto 4px}
+.scorecard .ring .big{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.scorecard .ring .big b{font-size:46px;font-weight:900;line-height:1;color:var(--health-green)}
+.scorecard .ring .big small{font-size:12px;color:var(--muted);font-weight:800;margin-top:2px}
+.scorecard .label{font-size:14px;font-weight:800;margin-top:6px}
+.scorecard .label span{color:var(--success-green)}
+.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.metric{border-radius:24px;padding:15px 12px;text-align:center}
+.metric .ic{font-size:20px}
+.metric .num{font-size:26px;font-weight:900;line-height:1;margin-top:8px}
+.metric .num span{font-size:13px;font-weight:800}
+.metric .lbl{font-size:11px;font-weight:800;margin-top:4px;opacity:.8}
+.m-weight{background:var(--soft-pink);color:#9c2f86}
+.m-water{background:var(--soft-blue);color:#0b6e9c}
+.m-act{background:var(--soft-orange);color:#a8500a}
 
-/* ===== HEALTH ===== */
-.pets{display:flex;gap:10px;overflow-x:auto;padding:2px 0 10px}
-.pets::-webkit-scrollbar{height:0}
-.pchip{flex-shrink:0;display:flex;align-items:center;gap:9px;padding:7px 15px 7px 7px;border-radius:18px;cursor:pointer;background:#fff;box-shadow:var(--shadow-sm);transition:.2s;border:2px solid transparent}
-.pchip.sel{border-color:var(--ink)}
-.pface{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
-.pchip b{font-size:13.5px;display:block;font-weight:800}.pchip small{font-size:11px;color:var(--ink-faint)}
-.pchip.add{border:2px dashed #d8d6e0;color:var(--pink2);font-weight:800;padding:8px 16px;background:transparent}
-.profile{display:flex;gap:14px;align-items:center}
-.bigface{width:74px;height:74px;border-radius:22px;box-shadow:var(--shadow-sm);flex-shrink:0}
-.profile h2{font-family:"Baloo 2";font-size:22px;font-weight:800}
-.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.pill{padding:5px 11px;border-radius:999px;background:#f4f3f7;font-size:11px;color:var(--ink-soft);font-weight:600}
-.pill b{color:var(--ink)}
-.seg{display:flex;gap:5px;margin:14px 0;padding:5px;border-radius:18px;background:#f1eff5;overflow-x:auto}
+/* profile photo upload */
+.prow{display:flex;align-items:center;gap:13px;padding:13px;border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:12px}
+.prow .ph{width:54px;height:54px;border-radius:17px;overflow:hidden;background:#eee;flex-shrink:0}
+.prow .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.prow .pi{flex:1;min-width:0}
+.prow b{font-size:15px;font-weight:800}
+.prow small{font-size:12px;color:var(--muted);font-weight:600;display:block}
+.prow .upload{flex-shrink:0;border:none;background:var(--mint-bg);color:var(--health-green);font-family:inherit;font-weight:800;font-size:12px;padding:9px 14px;border-radius:var(--r-chip);cursor:pointer}
+.ownercard{background:linear-gradient(140deg,var(--soft-purple),#d8d0ff);border-radius:var(--r-card);padding:22px;margin-bottom:16px;display:flex;align-items:center;gap:15px}
+.ownercard .oav{width:64px;height:64px;border-radius:22px;overflow:hidden;background:#fff;flex-shrink:0;box-shadow:var(--shadow-sm)}
+.ownercard .oav img{width:100%;height:100%;object-fit:cover;display:block}
+.ownercard h2{font-size:20px;font-weight:900;color:#2b2150}
+.ownercard small{font-size:12.5px;color:#5a4e8a;font-weight:700}
+.setlist{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow-sm);overflow:hidden}
+.setitem{display:flex;align-items:center;gap:13px;padding:15px 18px;cursor:pointer;border-bottom:1px solid var(--line);font-weight:800;font-size:14px}
+.setitem:last-child{border-bottom:none}
+.setitem .si{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-size:17px;flex-shrink:0}
+.setitem .ar{margin-left:auto;color:var(--muted)}
+
+/* segmented */
+.seg{display:flex;gap:6px;margin:4px 0 16px;padding:5px;border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);overflow-x:auto}
 .seg::-webkit-scrollbar{height:0}
-.seg button{border:none;background:transparent;padding:9px 15px;border-radius:13px;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:800;color:var(--ink-soft);white-space:nowrap;transition:.2s}
-.seg button.active{background:var(--ink);color:#fff}
-.hpane{display:none;animation:fade .35s ease}.hpane.active{display:block}
-.legend{display:flex;gap:14px;font-size:11.5px;color:var(--ink-soft);margin-top:6px;flex-wrap:wrap}
-.legend i{display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:5px;vertical-align:-1px}
+.seg button{border:none;background:transparent;padding:10px 15px;border-radius:13px;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:800;color:var(--muted);white-space:nowrap;transition:.2s}
+.seg button.active{background:var(--health-green);color:#fff}
+.rpane{display:none;animation:fade .35s ease}.rpane.active{display:block}
 
+/* timeline */
 .tl{position:relative;padding-left:24px}
-.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--pink1),var(--mint1))}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--health-green),var(--water-blue))}
 .tl-item{position:relative;margin-bottom:14px}
-.tl-item::before{content:"";position:absolute;left:-21px;top:4px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--pink2)}
-.tl-item.teal::before{border-color:var(--mint2)}
-.tl-item.violet::before{border-color:var(--lav2)}
-.tl-card{padding:13px 15px;border-radius:16px;background:#faf9fc}
-.tl-card .date{font-size:11px;color:var(--ink-faint);font-weight:800}
-.tl-card h4{font-size:14px;margin:4px 0 5px;font-weight:800}
-.tl-card p{font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+.tl-item::before{content:"";position:absolute;left:-21px;top:4px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--health-green)}
+.tl-item.b::before{border-color:var(--water-blue)}
+.tl-item.p::before{border-color:var(--care-purple)}
+.tl-card{padding:14px 16px;border-radius:18px;background:#fff;box-shadow:var(--shadow-sm)}
+.tl-card .date{font-size:11px;color:var(--muted);font-weight:800}
+.tl-card h4{font-size:14.5px;margin:4px 0 5px;font-weight:800}
+.tl-card p{font-size:12.5px;color:var(--muted);line-height:1.6;font-weight:600}
 
-.med{padding:14px;border-radius:18px;background:#faf9fc;margin-bottom:11px}
-.med .mh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.med .mh .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:19px;color:#fff;background:var(--lav2)}
-.med b{font-size:14px;font-weight:800}.med small{color:var(--ink-faint);font-size:11.5px}
-.prog{height:8px;border-radius:999px;background:#e9e7ef;overflow:hidden;margin-top:9px}
-.prog i{display:block;height:100%;border-radius:999px;background:var(--mint2)}
-.mfoot{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-soft);margin-top:7px}
-.vtable{width:100%;border-collapse:collapse}
-.vtable th{text-align:left;font-size:11px;color:var(--ink-faint);font-weight:800;padding:8px 6px}
-.vtable td{padding:11px 6px;font-size:12.5px;border-top:1px solid var(--line)}
-.done{color:var(--mint2);font-weight:800}.due{color:var(--pink2);font-weight:800}
+.vtable{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.vtable th{text-align:left;font-size:11px;color:var(--muted);font-weight:800;padding:12px 14px;background:#fafbfb}
+.vtable td{padding:13px 14px;font-size:12.5px;border-top:1px solid var(--line);font-weight:700}
+.done{color:var(--health-green);font-weight:900}.due{color:var(--food-orange);font-weight:900}
 
-.composer{display:flex;gap:9px;align-items:center}
-.composer input{flex:1;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:#faf9fc;font-family:inherit;font-size:13px;outline:none}
-.post{margin-bottom:13px}
-.post .ph{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.post .ph .pa{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:19px;background:#f1eff5;overflow:hidden}
-.post .ph b{font-size:13.5px;font-weight:800}.post .ph small{font-size:11px;color:var(--ink-faint);display:block}
-.post .topic{display:inline-block;margin-bottom:8px;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800;background:rgba(47,148,136,.14);color:var(--mint2)}
-.post p{font-size:13.5px;line-height:1.65}
-.post .acts{display:flex;gap:18px;margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);font-weight:700}
-.post .acts span{cursor:pointer}
-.verify{color:var(--mint2);font-size:12px}
-
-.kcat{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px}
-.kcat::-webkit-scrollbar{height:0}
-.kcat button{flex-shrink:0;padding:9px 16px;border-radius:14px;border:none;background:#fff;box-shadow:var(--shadow-sm);font-family:inherit;font-weight:800;font-size:12.5px;color:var(--ink-soft);cursor:pointer;transition:.2s}
-.kcat button.on{background:var(--lav2);color:#fff}
-.foodc{display:flex;gap:8px;margin-top:8px}
-.foodc input{flex:1;padding:11px 14px;border-radius:13px;border:1px solid var(--line);background:#faf9fc;font-family:inherit;font-size:13px;outline:none}
-.foodres{margin-top:13px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
-.food{padding:11px 6px;border-radius:14px;text-align:center;background:#faf9fc}
-.food .fi{font-size:26px}.food b{display:block;font-size:12px;margin:4px 0 2px;font-weight:800}
-.food .safe{color:var(--mint2);font-weight:800;font-size:10.5px}
-.food .danger{color:var(--pink2);font-weight:800;font-size:10.5px}
-.food .caution{color:var(--peach2);font-weight:800;font-size:10.5px}
-.kart{display:flex;gap:12px;border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);padding:11px;margin-bottom:11px;cursor:pointer;transition:.2s}
-.kart:active{transform:scale(.99)}
-.kart .kc{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-size:30px;flex-shrink:0}
-.kart .kt{font-size:11px;font-weight:800;color:var(--pink2)}
-.kart h4{font-size:13.5px;margin:3px 0 4px;line-height:1.35;font-weight:800}
-.kart .km{font-size:11px;color:var(--ink-faint)}
-
-.cfilter{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin:4px 0 6px}
-.cfilter::-webkit-scrollbar{height:0}
-.cfilter button{flex-shrink:0;padding:9px 16px;border-radius:14px;border:none;background:#fff;box-shadow:var(--shadow-sm);font-family:inherit;font-weight:800;font-size:12.5px;color:var(--ink-soft);cursor:pointer;transition:.2s}
-.cfilter button.on{background:var(--mint2);color:#fff}
-.circle{display:flex;align-items:center;gap:12px;border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);padding:12px;margin-bottom:11px;cursor:pointer;transition:.2s}
-.circle:active{transform:scale(.99)}
-.circle .ca{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:25px;flex-shrink:0;background:#f4f3f7}
-.circle .cinfo{flex:1;min-width:0}
-.circle b{font-size:14.5px;font-weight:800}
-.circle .ctags{display:flex;gap:5px;margin:3px 0}
-.circle .cdesc{font-size:11.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cat-tag{font-size:10px;font-weight:800;padding:2px 8px;border-radius:999px;background:rgba(47,148,136,.14);color:var(--mint2)}
-.mem-tag{font-size:10.5px;color:var(--ink-faint);font-weight:700}
-.joinbtn{flex-shrink:0;border:none;border-radius:13px;padding:9px 15px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer;transition:.2s}
-.joinbtn.join{background:var(--pink2);color:#fff}
-.joinbtn.joined{background:#f1eff5;color:var(--ink-soft)}
-.cbar{display:flex;align-items:center;gap:12px;margin:2px 2px 14px}
-.cback{width:40px;height:40px;border-radius:13px;border:none;background:#fff;box-shadow:var(--shadow-sm);font-size:18px;cursor:pointer;flex-shrink:0}
-.cbanner{border-radius:24px;padding:18px;color:#fff;margin-bottom:14px;background:var(--mint2)}
-.cbanner .cbh{display:flex;align-items:center;gap:12px}
-.cbanner .cba{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:28px}
-.cbanner h2{font-family:"Baloo 2";font-size:21px;font-weight:800}
-.cbanner small{opacity:.92;font-size:12px}
+.med{padding:15px;border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:12px}
+.med .mh{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.med .mh .ic{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:19px;background:var(--soft-purple);color:var(--care-purple)}
+.med b{font-size:14.5px;font-weight:800}.med small{color:var(--muted);font-size:12px;font-weight:600}
+.prog{height:8px;border-radius:999px;background:#eef1f0;overflow:hidden;margin-top:10px}
+.prog i{display:block;height:100%;border-radius:999px;background:var(--health-green)}
+.mfoot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px;font-weight:700}
 
 /* calendar */
 .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.cal-head b{font-family:"Baloo 2";font-size:18px;font-weight:800}
-.cal-nav{display:flex;gap:7px;align-items:center}
-.cal-nav button{width:34px;height:34px;border-radius:12px;border:none;background:#f1eff5;cursor:pointer;font-size:15px;color:var(--ink-soft);font-family:inherit}
-.cal-nav button.tdy{width:auto;padding:0 13px;font-size:12px;font-weight:800;color:#fff;background:var(--pink2)}
+.cal-head b{font-size:17px;font-weight:900}
+.cal-nav{display:flex;gap:7px}
+.cal-nav button{width:34px;height:34px;border-radius:12px;border:none;background:#f2f5f4;cursor:pointer;font-size:15px;color:var(--text);font-family:inherit;font-weight:800}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.cal-dow{font-size:10.5px;color:var(--ink-faint);text-align:center;font-weight:800;padding:2px 0 6px}
-.cal-cell{aspect-ratio:1;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12.5px;cursor:pointer;color:var(--ink);position:relative;transition:.15s;font-weight:600}
+.cal-dow{font-size:10.5px;color:var(--muted);text-align:center;font-weight:800;padding:2px 0 6px}
+.cal-cell{aspect-ratio:1;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12.5px;cursor:pointer;position:relative;font-weight:700}
 .cal-cell.empty{cursor:default}
-.cal-cell:not(.empty):hover{background:#f4f3f7}
-.cal-cell.today{color:var(--pink2);font-weight:900}
-.cal-cell.sel{background:var(--ink);color:#fff!important;font-weight:900}
+.cal-cell.today{color:var(--health-green);font-weight:900}
+.cal-cell.sel{background:var(--health-green);color:#fff!important;font-weight:900}
 .evdots{display:flex;gap:2px;height:6px;margin-top:3px}
 .evd{width:5px;height:5px;border-radius:50%}
-.evd.ev-vax{background:var(--mint2)}.evd.ev-med{background:var(--lav2)}.evd.ev-vet{background:var(--pink2)}.evd.ev-care{background:var(--peach2)}
+.evd.vax{background:var(--health-green)}.evd.med{background:var(--care-purple)}.evd.vet{background:var(--pet-pink)}.evd.care{background:var(--food-orange)}
 .cal-cell.sel .evd{background:#fff}
-.day-h{font-size:14px;font-weight:900;margin:4px 2px 12px}
-.empty-day{text-align:center;color:var(--ink-faint);font-size:13px;padding:20px}
+.day-h{font-size:14px;font-weight:900;margin:14px 2px 12px}
+
+/* clinics */
+.clinic{display:flex;align-items:center;gap:13px;padding:14px;border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:12px}
+.clinic .ci{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:21px;background:var(--soft-pink);flex-shrink:0}
+.clinic b{font-size:14.5px;font-weight:800}
+.clinic small{font-size:12px;color:var(--muted);font-weight:600;display:block}
+.clinic .star{margin-left:auto;font-size:12px;font-weight:900;color:var(--warning-yellow)}
 
 /* sheet */
-.overlay{position:absolute;inset:0;background:rgba(20,20,28,.4);opacity:0;pointer-events:none;transition:.3s;z-index:70;border-radius:42px}
+.overlay{position:absolute;inset:0;background:rgba(20,20,20,.4);opacity:0;pointer-events:none;transition:.3s;z-index:70;border-radius:42px}
 .overlay.show{opacity:1;pointer-events:auto}
 .sheet{position:absolute;left:0;right:0;bottom:0;z-index:80;transform:translateY(110%);transition:transform .4s cubic-bezier(.2,1,.3,1);
-  background:#fff;border-radius:32px 32px 42px 42px;box-shadow:0 -20px 50px -20px rgba(20,20,30,.4);padding:10px 20px 26px;max-height:84%;overflow-y:auto}
+  background:#fff;border-radius:32px 32px 42px 42px;box-shadow:0 -20px 50px -20px rgba(20,20,20,.4);padding:10px 22px 28px;max-height:86%;overflow-y:auto}
 .sheet.show{transform:translateY(0)}
 .sheet::-webkit-scrollbar{width:0}
-.grip{width:42px;height:5px;border-radius:99px;background:#e1dfe8;margin:6px auto 14px}
-.sheet h3{font-family:"Baloo 2";font-size:21px;font-weight:800;margin-bottom:4px}
-.sheet .sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:16px}
-.types{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:18px}
-.type{padding:11px 4px;border-radius:15px;text-align:center;background:#f4f3f7;border:2px solid transparent;cursor:pointer;transition:.2s;font-size:10.5px;font-weight:800;color:var(--ink-soft)}
-.type .ti{font-size:21px;display:block;margin-bottom:3px}
-.type.on{border-color:var(--ink);background:#fff;color:var(--ink)}
-.field{margin-bottom:14px}
-.field label{display:block;font-size:12.5px;font-weight:800;color:var(--ink-soft);margin-bottom:6px}
-.field input,.field textarea,.field select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#faf9fc;font-family:inherit;font-size:14px;outline:none;color:var(--ink)}
-.field textarea{resize:none;min-height:70px}
-.field input:focus,.field textarea:focus{border-color:var(--ink)}
+.grip{width:42px;height:5px;border-radius:99px;background:#e3e7e6;margin:6px auto 16px}
+.sheet h3{font-size:21px;font-weight:900;margin-bottom:4px}
+.sheet .sub{font-size:12.5px;color:var(--muted);margin-bottom:18px;font-weight:600}
+.types{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:18px}
+.type{padding:12px 4px;border-radius:16px;text-align:center;background:#f4f7f6;border:2px solid transparent;cursor:pointer;transition:.2s;font-size:10.5px;font-weight:800;color:var(--muted)}
+.type .ti{font-size:22px;display:block;margin-bottom:3px}
+.type.on{border-color:var(--health-green);background:#fff;color:var(--health-green)}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:12.5px;font-weight:800;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:13px 15px;border-radius:15px;border:1.5px solid var(--line);background:#fafbfb;font-family:inherit;font-size:14.5px;outline:none;color:var(--text);font-weight:600}
+.field textarea{resize:none;min-height:74px}
+.field input:focus,.field textarea:focus{border-color:var(--health-green)}
 
-#toast{position:absolute;bottom:96px;left:50%;transform:translate(-50%,140px);z-index:200;padding:12px 20px;border-radius:15px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.2,1.2,.3,1);max-width:80%;text-align:center}
+#toast{position:absolute;bottom:100px;left:50%;transform:translate(-50%,150px);z-index:200;padding:12px 22px;border-radius:16px;background:var(--dark);color:#fff;font-size:13.5px;font-weight:800;box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.2,1.2,.3,1);max-width:80%;text-align:center}
 
 @media(max-width:430px){
   body{padding:14px 0 30px}
-  .phone{width:100%;height:92vh;border-radius:0;padding:0;box-shadow:none}
+  .phone{width:100%;height:93vh;border-radius:0;padding:0;box-shadow:none}
   .screen{border-radius:0}.notch{display:none}.overlay{border-radius:0}
   .caption{display:none}
 }
 </style>
 </head>
 <body>
-<div class="doodle"></div>
-
-<div class="caption">
-  <div class="logo">🐾 <b>PAWkids</b></div>
-  <p>毛孩飼主交流與健康照護 App · 互動原型（可點擊操作）</p>
-</div>
+<div class="caption"><div class="logo">🐾 <b>PAWkids</b></div><p>毛孩飼主交流與健康照護 App · 互動原型</p></div>
 
 <div class="phone">
   <div class="screen">
@@ -321,85 +255,117 @@ body{min-height:100vh;color:var(--ink);-webkit-font-smoothing:antialiased;
       <!-- HOME -->
       <section class="view active" id="v-home">
         <div class="greet">
-          <div class="av"><img class="imground" src="https://i.pravatar.cc/120?img=47" onerror="this.parentNode.textContent='🙂'"></div>
+          <div class="av"><img src="https://i.pravatar.cc/120?img=47" onerror="this.parentNode.textContent='🙂'"></div>
           <div class="gt"><b>Hi, Ariel 👋</b><small>2026年6月29日 · 週一</small></div>
-          <div class="bell" onclick="go('reminders')">🔔</div>
+          <div class="bell" onclick="go('records')">🔔</div>
         </div>
 
         <div class="hero">
-          <span class="ptag">今日照護挑戰</span>
-          <div class="htitle">3 件待辦<br>今天完成 💪</div>
-          <div class="hrow">
-            <div class="stack"><span>🐶</span><span>🐱</span><span>🦮</span></div>
-            <button class="harrow" onclick="go('reminders')">→</button>
-          </div>
-          <div class="h3d">🦴</div>
+          <div class="tagrow"><span class="pill">⏰ 健康提醒</span></div>
+          <h2>豆豆 狂犬病疫苗<br>還有 5 天到期</h2>
+          <p>建議本週預約中山動物醫院接種</p>
+          <button class="cta" onclick="go('vet')">立即預約 →</button>
+          <div class="emoji">💉</div>
         </div>
 
-        <div class="weekstrip" id="weekStrip"></div>
-
-        <div class="datacards" id="dataCards"></div>
-
-        <div class="card"><div class="sec-h" style="margin-bottom:6px"><h3 style="font-size:15.5px">本週照護完成度</h3><span class="more">85% ✓</span></div><div id="weekChart"></div></div>
-
-        <div class="sec-h"><h3>我的毛孩</h3><span class="more" onclick="go('health')">健康檔案 →</span></div>
+        <div class="sec-h"><h3>我的毛孩</h3><span class="more" onclick="go('health')">健康 →</span></div>
         <div class="petrow" id="homePets"></div>
 
-        <div class="sec-h"><h3>今日計畫</h3><span class="more" onclick="go('reminders')">行事曆 →</span></div>
-        <div class="plangrid" id="todayList"></div>
+        <div class="sec-h"><h3>今日待辦</h3><span class="more" onclick="go('records')">行事曆 →</span></div>
+        <div id="todayList"></div>
 
-        <div class="card" style="margin-top:16px">
-          <div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">💬 圈圈動態</h3><span class="more" onclick="go('community')">前往 →</span></div>
-          <div class="rem" onclick="go('community')" style="cursor:pointer"><div class="dot tile-w">🍗</div><div><b>柴犬同好會</b><small>挑食對策討論 · 42 則回覆</small></div></div>
-          <div class="rem" onclick="go('community')" style="cursor:pointer"><div class="dot tile-vax">🐣</div><div><b>幼犬新手村</b><small>幼貓結紮後照護經驗</small></div></div>
-        </div>
-
-        <div class="card">
-          <div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">📚 為你推薦</h3><span class="more" onclick="go('knowledge')">知識庫 →</span></div>
-          <div class="kart" onclick="go('knowledge')"><div class="kc" style="background:#ffe7d6">🍖</div><div><div class="kt">營養與食物</div><h4>幼犬到成犬：各階段飲食換算指南</h4><div class="km">📖 6 分鐘 · 👁️ 2.4k</div></div></div>
-        </div>
+        <div class="sec-h"><h3>探索</h3></div>
+        <div class="rem" onclick="go('community')" style="cursor:pointer"><div class="dot d-pink">💬</div><div><b>飼主圈圈</b><small>品種・地區・主題社群交流</small></div><div class="when" style="color:var(--muted)">›</div></div>
+        <div class="rem" onclick="go('knowledge')" style="cursor:pointer"><div class="dot d-orange">📚</div><div><b>衛教知識庫</b><small>營養・疾病・照護文章與食物速查</small></div><div class="when" style="color:var(--muted)">›</div></div>
       </section>
 
       <!-- HEALTH -->
       <section class="view" id="v-health">
-        <div class="head"><div><div class="eyebrow">★ 核心 · 健康照護檔案</div><div class="h2big">毛孩檔案</div></div><div class="av solid">A</div></div>
-        <div class="sec-title">選擇毛孩</div>
-        <div class="pets" id="healthSwitch"></div>
-        <div class="card"><div class="profile" id="petProfile"></div></div>
-        <div class="seg" id="seg">
-          <button class="active" data-h="growth">📈 生長曲線</button>
-          <button data-h="vet">🩺 就醫</button>
-          <button data-h="vax">💉 疫苗</button>
-          <button data-h="med">💊 用藥</button>
-          <button data-h="log">📔 日誌</button>
+        <div class="pagetitle">健康狀態</div>
+        <div class="pagesub" id="healthSub">豆豆 · 柴犬 · 4 歲</div>
+        <div class="petrow" id="healthPets"></div>
+
+        <div class="scorecard">
+          <div class="ring" id="scoreRing"></div>
+          <div class="label" id="scoreLabel"></div>
         </div>
-        <div class="hpane active" id="h-growth">
-          <div class="card"><h3>體重生長曲線</h3><p style="font-size:12px;color:var(--ink-soft);margin:6px 0 12px" id="growthHint"></p><div id="growthChart"></div>
-            <div class="legend"><span><i style="background:var(--pink1)"></i>實際體重</span><span><i style="background:var(--mint1)"></i>理想區間</span></div></div>
-          <div class="card"><div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">最新量測</h3></div><div id="measList"></div>
-            <button class="btn cor block" style="margin-top:6px" onclick="openSheet('growth')">＋ 記錄今日量測</button></div>
-        </div>
-        <div class="hpane" id="h-vet"><div class="card"><div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">就醫與健檢</h3></div><div class="tl" id="vetTl"></div>
-          <button class="btn ghost block" onclick="openSheet('vet')">＋ 新增就醫紀錄</button></div></div>
-        <div class="hpane" id="h-vax"><div class="card"><div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">疫苗接種</h3></div>
-          <table class="vtable"><thead><tr><th>疫苗</th><th>最近</th><th>下次</th><th>狀態</th></tr></thead><tbody id="vaxBody"></tbody></table>
-          <button class="btn cor block" style="margin-top:14px" onclick="openSheet('vax')">＋ 新增疫苗紀錄</button></div></div>
-        <div class="hpane" id="h-med"><div class="card"><div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">用藥與保健</h3></div><div id="medList"></div>
-          <button class="btn ghost block" onclick="openSheet('med')">＋ 新增用藥 / 保健品</button></div></div>
-        <div class="hpane" id="h-log"><div class="card"><div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">健康日誌</h3></div>
-          <div class="composer" style="margin-bottom:14px"><div class="pface avwrap" id="logFace"></div><input id="quickLog" placeholder="今天毛孩狀況如何？"><button class="btn cor" onclick="quickAddLog()">記錄</button></div>
-          <div class="tl" id="logTl"></div></div></div>
+
+        <div class="metrics" id="metrics"></div>
+
+        <button class="btn green block" onclick="go('records')">查看完整健康紀錄 →</button>
       </section>
 
-      <!-- CIRCLES -->
+      <!-- RECORDS -->
+      <section class="view" id="v-records">
+        <div class="pagetitle">健康紀錄</div>
+        <div class="pagesub" id="recordsSub"></div>
+        <div class="petrow" id="recordsPets"></div>
+
+        <div class="card">
+          <div class="cal-head"><b id="calTitle"></b><div class="cal-nav"><button onclick="calNav(-1)">‹</button><button onclick="calNav(1)">›</button></div></div>
+          <div class="cal-grid" id="calDow"></div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div id="calEvents"></div>
+
+        <div class="seg" id="rseg">
+          <button class="active" data-r="vet">🩺 就醫</button>
+          <button data-r="vax">💉 疫苗</button>
+          <button data-r="med">💊 用藥</button>
+          <button data-r="growth">⚖️ 體重</button>
+          <button data-r="log">📔 日誌</button>
+        </div>
+        <div class="rpane active" id="r-vet"><div class="tl" id="vetTl"></div></div>
+        <div class="rpane" id="r-vax"><table class="vtable"><thead><tr><th>疫苗</th><th>最近</th><th>下次</th><th>狀態</th></tr></thead><tbody id="vaxBody"></tbody></table></div>
+        <div class="rpane" id="r-med"><div id="medList"></div></div>
+        <div class="rpane" id="r-growth"><div class="card"><h3 style="font-weight:900;margin-bottom:4px">體重曲線</h3><p style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:10px" id="growthHint"></p><div id="growthChart"></div></div><div id="measList"></div></div>
+        <div class="rpane" id="r-log"><div class="tl" id="logTl"></div></div>
+      </section>
+
+      <!-- VET -->
+      <section class="view" id="v-vet">
+        <div class="pagetitle">獸醫</div>
+        <div class="pagesub">就診紀錄與預約</div>
+        <div class="card" style="background:linear-gradient(140deg,var(--soft-pink),#ffd0f4);box-shadow:none">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:38px">🏥</div>
+            <div style="flex:1"><b style="font-size:16px;font-weight:900;color:#7a2168">預約看診</b><div style="font-size:12.5px;color:#9c4789;font-weight:700;margin-top:2px">選擇合作院所，線上掛號</div></div>
+          </div>
+          <button class="btn block" style="background:var(--pet-pink);color:#fff;margin-top:14px" onclick="toast('開啟預約 🐾')">＋ 立即預約</button>
+        </div>
+        <div class="sec-h"><h3>就診紀錄</h3><span class="more" id="vetSub"></span></div>
+        <div class="tl" id="vetTl2"></div>
+        <div class="sec-h"><h3>合作院所</h3></div>
+        <div class="clinic"><div class="ci">🏥</div><div><b>中山動物醫院</b><small>0.8 km · 內科 / 外科 / 牙科</small></div><div class="star">★ 4.9</div></div>
+        <div class="clinic"><div class="ci">🐾</div><div><b>喵喵貓專科醫院</b><small>1.5 km · 貓專科</small></div><div class="star">★ 4.8</div></div>
+        <div class="clinic"><div class="ci">🦴</div><div><b>大同動物醫院</b><small>2.1 km · 骨科 / 影像</small></div><div class="star">★ 4.7</div></div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="view" id="v-profile">
+        <div class="pagetitle">我的</div>
+        <div class="pagesub">帳號與毛孩管理</div>
+        <div class="ownercard">
+          <div class="oav"><img src="https://i.pravatar.cc/120?img=47" onerror="this.parentNode.textContent='🙂'"></div>
+          <div><h2>Ariel</h2><small>arielypf@gmail.com · 3 隻毛孩</small></div>
+        </div>
+        <div class="sec-h"><h3>我的毛孩</h3><span class="more" onclick="addPetPhoto(-1)">＋ 新增</span></div>
+        <div id="profilePets"></div>
+        <div class="sec-h"><h3>更多</h3></div>
+        <div class="setlist">
+          <div class="setitem" onclick="go('community')"><div class="si d-pink">💬</div>飼主圈圈<span class="ar">›</span></div>
+          <div class="setitem" onclick="go('knowledge')"><div class="si d-orange">📚</div>衛教知識庫<span class="ar">›</span></div>
+          <div class="setitem" onclick="go('records')"><div class="si d-green">🔔</div>提醒與通知<span class="ar">›</span></div>
+          <div class="setitem" onclick="toast('設定')"><div class="si d-purple">⚙️</div>設定<span class="ar">›</span></div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY (圈圈) -->
       <section class="view" id="v-community">
         <div id="circleList">
-          <div class="head"><div><div class="eyebrow">飼主交流</div><div class="h2big">飼主圈圈</div></div><div class="av solid">A</div></div>
-          <div class="sec-title">我的圈圈</div>
-          <div class="pets" id="myCircles"></div>
-          <div class="cfilter" id="circleFilter">
-            <button class="on" data-c="all">🐾 全部</button><button data-c="breed">🦴 品種</button><button data-c="region">📍 地區</button><button data-c="topic">💡 主題</button>
-          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin:2px 0 6px"><button class="cal-nav" style="display:flex"><button onclick="go('home')" style="width:38px;height:38px;border-radius:13px;border:none;background:#f2f5f4;font-size:18px;cursor:pointer;font-weight:800">←</button></button><span class="pagetitle" style="margin:0">飼主圈圈</span></div>
+          <div class="pagesub">依品種・地區・主題加入社群</div>
+          <div class="seg" id="circleFilter"><button class="on active" data-c="all">🐾 全部</button><button data-c="breed">🦴 品種</button><button data-c="region">📍 地區</button><button data-c="topic">💡 主題</button></div>
           <div id="circleCards"></div>
         </div>
         <div id="circleDetail" style="display:none"></div>
@@ -407,56 +373,44 @@ body{min-height:100vh;color:var(--ink);-webkit-font-smoothing:antialiased;
 
       <!-- KNOWLEDGE -->
       <section class="view" id="v-knowledge">
-        <div class="head"><div><div class="eyebrow">衛教知識</div><div class="h2big">知識庫</div></div><div class="av solid">A</div></div>
-        <div class="kcat"><button class="on">全部</button><button>🍗 營養</button><button>🩺 疾病</button><button>🐾 生長</button><button>🦷 照護</button><button>🧠 行為</button></div>
+        <div style="display:flex;align-items:center;gap:10px;margin:2px 0 6px"><button onclick="go('home')" style="width:38px;height:38px;border-radius:13px;border:none;background:#f2f5f4;font-size:18px;cursor:pointer;font-weight:800">←</button><span class="pagetitle" style="margin:0">知識庫</span></div>
+        <div class="pagesub">衛教文章與食物安全速查</div>
         <div class="card">
-          <div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">🥦 食物安全速查</h3></div>
-          <div class="foodc"><input placeholder="例如：巧克力、雞肉…"><button class="btn cor" onclick="toast('查詢中…')">查詢</button></div>
-          <div class="foodres">
-            <div class="food"><div class="fi">🍫</div><b>巧克力</b><span class="danger">⛔ 中毒</span></div>
-            <div class="food"><div class="fi">🍇</div><b>葡萄</b><span class="danger">⛔ 腎衰竭</span></div>
-            <div class="food"><div class="fi">🍗</div><b>雞肉</b><span class="safe">✓ 去骨</span></div>
-            <div class="food"><div class="fi">🥕</div><b>胡蘿蔔</b><span class="safe">✓ 安全</span></div>
-            <div class="food"><div class="fi">🧅</div><b>洋蔥</b><span class="danger">⛔ 溶血</span></div>
-            <div class="food"><div class="fi">🧀</div><b>起司</b><span class="caution">⚠ 少量</span></div>
+          <h3 style="font-weight:900;margin-bottom:10px">🥦 食物安全速查</h3>
+          <div class="metrics" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="metric m-weight"><div class="ic">🍫</div><div class="num" style="font-size:14px">巧克力</div><div class="lbl" style="color:var(--alert-red)">⛔ 中毒</div></div>
+            <div class="metric m-water"><div class="ic">🍗</div><div class="num" style="font-size:14px">雞肉</div><div class="lbl" style="color:var(--health-green)">✓ 去骨</div></div>
+            <div class="metric m-act"><div class="ic">🧅</div><div class="num" style="font-size:14px">洋蔥</div><div class="lbl" style="color:var(--alert-red)">⛔ 溶血</div></div>
           </div>
         </div>
-        <div class="kart"><div class="kc" style="background:#ffe7d6">🍖</div><div><div class="kt">營養與食物</div><h4>幼犬到成犬：各階段飲食換算指南</h4><div class="km">📖 6 分鐘 · 👁️ 2.4k</div></div></div>
-        <div class="kart"><div class="kc" style="background:#d6f7f1">🦠</div><div><div class="kt">疾病</div><h4>認識犬貓常見皮膚病與居家照護</h4><div class="km">📖 8 分鐘 · 👁️ 3.1k</div></div></div>
-        <div class="kart"><div class="kc" style="background:#e7e1ff">🐣</div><div><div class="kt">生長階段</div><h4>新手養幼貓：前三個月照護全攻略</h4><div class="km">📖 10 分鐘 · 👁️ 5.6k</div></div></div>
-        <div class="kart"><div class="kc" style="background:#fff0d6">🦷</div><div><div class="kt">日常照護</div><h4>每天 3 分鐘：正確幫毛孩刷牙</h4><div class="km">📖 4 分鐘 · 👁️ 1.8k</div></div></div>
-      </section>
-
-      <!-- REMINDERS (calendar) -->
-      <section class="view" id="v-reminders">
-        <div class="head"><div><div class="eyebrow">智慧提醒</div><div class="h2big">提醒行事曆</div></div><div class="av solid">A</div></div>
-        <div class="card">
-          <div class="cal-head"><b id="calTitle"></b><div class="cal-nav"><button class="tdy" onclick="calToday()">今天</button><button onclick="calNav(-1)">‹</button><button onclick="calNav(1)">›</button></div></div>
-          <div class="cal-grid" id="calDow"></div>
-          <div class="cal-grid" id="calGrid"></div>
-          <div class="legend" style="margin-top:12px"><span><i style="background:var(--mint2)"></i>疫苗</span><span><i style="background:var(--lav2)"></i>用藥</span><span><i style="background:var(--pink2)"></i>就醫</span><span><i style="background:var(--peach2)"></i>照護</span></div>
-        </div>
-        <div class="card"><div id="calEvents"></div><button class="btn cor block" style="margin-top:6px" onclick="openSheet('rem')">＋ 新增提醒</button></div>
-        <div class="card"><div class="sec-h" style="margin-bottom:11px"><h3 style="font-size:15.5px">📲 通知方式</h3></div><p style="font-size:12.5px;color:var(--ink-soft);line-height:1.7">提醒同步至 <b>App 推播</b>、<b>Email</b> 與 <b>行事曆</b>。疫苗與用藥到期前 3 天自動提醒。</p></div>
+        <div class="rem"><div class="dot d-orange">🍖</div><div><b>各階段飲食換算指南</b><small>營養與食物 · 6 分鐘</small></div></div>
+        <div class="rem"><div class="dot d-green">🦠</div><div><b>犬貓常見皮膚病照護</b><small>疾病 · 8 分鐘</small></div></div>
+        <div class="rem"><div class="dot d-purple">🐣</div><div><b>新手養幼貓全攻略</b><small>生長階段 · 10 分鐘</small></div></div>
+        <div class="rem"><div class="dot d-blue">🦷</div><div><b>正確幫毛孩刷牙</b><small>日常照護 · 4 分鐘</small></div></div>
       </section>
 
     </div>
 
-    <button class="fab" onclick="openSheet()">＋</button>
+    <!-- bottom nav -->
+    <div class="navwrap">
+      <nav class="tabbar">
+        <button class="active" data-view="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg>Home</button>
+        <button data-view="health"><svg viewBox="0 0 24 24"><path d="M12 20C6 16 3 12.5 3 9a4 4 0 0 1 7-2.6A4 4 0 0 1 21 9c0 3.5-3 7-9 11z"/></svg>Health</button>
+        <span class="navgap"></span>
+        <button data-view="vet"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>Vet</button>
+        <button data-view="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</button>
+      </nav>
+      <button class="addbtn" onclick="openSheet()">＋</button>
+      <div class="addlbl">Add</div>
+      <button data-view="records" id="recordsTabHidden" style="display:none"></button>
+    </div>
 
-    <nav class="tabbar">
-      <button class="active" data-view="home"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1v-8z"/></svg></span></button>
-      <button data-view="health"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 20C5 15.5 3 12.5 3 9.2 3 6.8 4.9 5 7.2 5c1.7 0 3.4 1 4.8 3 1.4-2 3.1-3 4.8-3C19.1 5 21 6.8 21 9.2c0 3.3-2 6.3-9 10.8z"/></svg></span></button>
-      <button data-view="community"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3a2 2 0 0 1-1-2V8a2 2 0 0 1 2-2z"/><path d="M9 9.5h6M9 12h4"/></svg></span></button>
-      <button data-view="knowledge"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 5h9a3 3 0 0 1 3 3v11H8a3 3 0 0 1-3-3z"/><path d="M9 9h5M9 12h5M9 15h3"/></svg></span></button>
-      <button data-view="reminders"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span></button>
-    </nav>
-
+    <!-- add record sheet -->
     <div class="overlay" id="overlay" onclick="closeSheet()"></div>
     <div class="sheet" id="sheet">
       <div class="grip"></div>
       <h3>新增紀錄</h3>
-      <p class="sub" id="sheetSub">選擇紀錄類型，填寫後儲存到毛孩的健康檔案。</p>
+      <p class="sub" id="sheetSub">選擇類型，儲存到毛孩的健康檔案</p>
       <div class="types" id="types">
         <div class="type on" data-t="growth"><span class="ti">⚖️</span>體重</div>
         <div class="type" data-t="vet"><span class="ti">🩺</span>就醫</div>
@@ -465,201 +419,236 @@ body{min-height:100vh;color:var(--ink);-webkit-font-smoothing:antialiased;
         <div class="type" data-t="log"><span class="ti">📔</span>日誌</div>
       </div>
       <div id="formArea"></div>
-      <button class="btn cor block" style="padding:15px;font-size:15px;margin-top:4px" onclick="saveRecord()">✓ 儲存紀錄</button>
+      <button class="btn green block" style="padding:16px;font-size:15px" onclick="saveRecord()">✓ 儲存紀錄</button>
     </div>
 
     <div id="toast"></div>
+    <input type="file" id="photoInput" accept="image/*" hidden>
   </div>
 </div>
 
 <script>
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const todayStr=()=>'2026-06-29';
 
 const pets=[
- {id:'doudou',name:'豆豆',emoji:'🐶',photo:'https://placedog.net/240/240?id=170',color:'#ffdcd2',
-  breed:'柴犬',sex:'公 · 已結紮',birth:'2022/03/18',age:'4 歲',blood:'DEA 1.1+',next:'7/3 疫苗',
+ {id:'doudou',name:'豆豆',emoji:'🐶',photo:'https://placedog.net/240/240?id=170',
+  breed:'柴犬',sex:'公·已結紮',birth:'2022/03/18',age:'4 歲',blood:'DEA 1.1+',next:'7/3 疫苗',
+  score:92,weight:'8.4',water:320,waterGoal:400,activity:45,
   weights:[{m:'1月',v:7.6},{m:'2月',v:7.9},{m:'3月',v:8.1},{m:'4月',v:8.2},{m:'5月',v:8.3},{m:'6月',v:8.4}],
   ideal:[{lo:7.2,hi:8.6},{lo:7.3,hi:8.7},{lo:7.4,hi:8.8},{lo:7.5,hi:8.9},{lo:7.6,hi:9.0},{lo:7.6,hi:9.0}],
-  hint:'柴犬同齡理想 7.6–9.0kg，目前落在健康範圍。',
-  meas:[{d:'2026/06/20',t:'體重 8.4 kg',s:'+0.1kg',ic:'⚖️',tile:'tile-vet'},{d:'2026/06/20',t:'身高 38 cm',s:'穩定',ic:'📏',tile:'tile-w'},{d:'理想體態',t:'BCS 5/9',s:'✓',ic:'🍖',tile:'tile-vax'}],
-  vet:[{d:'2026/05/12 · 中山動物醫院',h:'🩺 皮膚搔癢門診',p:'輕度過敏性皮膚炎，抗組織胺 7 天，建議換低敏飼料。複診已痊癒。',c:''},{d:'2026/03/18 · 中山動物醫院',h:'❤️ 年度健康檢查',p:'血檢、心臟超音波、X 光正常。牙結石輕微，建議半年內洗牙。',c:'teal'},{d:'2025/11/02 · 幸福動物醫院',h:'🦴 跛行檢查',p:'右後腳輕微拉傷，休息與消炎藥 5 天後恢復。',c:'violet'}],
+  hint:'柴犬同齡理想 7.6–9.0kg，落在健康範圍。',
+  meas:[{d:'2026/06/20',t:'體重 8.4 kg',s:'+0.1kg',ic:'⚖️',dot:'d-pink'},{d:'2026/06/20',t:'身高 38 cm',s:'穩定',ic:'📏',dot:'d-orange'},{d:'理想體態',t:'BCS 5/9',s:'✓',ic:'🍖',dot:'d-green'}],
+  vet:[{d:'2026/05/12 · 中山動物醫院',h:'🩺 皮膚搔癢門診',p:'輕度過敏性皮膚炎，抗組織胺 7 天，建議換低敏飼料。複診已痊癒。',c:''},{d:'2026/03/18 · 中山動物醫院',h:'❤️ 年度健康檢查',p:'血檢、心臟超音波、X 光正常。牙結石輕微，建議半年內洗牙。',c:'b'},{d:'2025/11/02 · 幸福動物醫院',h:'🦴 跛行檢查',p:'右後腳輕微拉傷，休息與消炎藥 5 天後恢復。',c:'p'}],
   vax:[{n:'🦠 八合一',last:'2025/07/10',next:'2026/07/10',st:'<span class="due">⏰ 12天</span>'},{n:'🐕 狂犬病',last:'2025/07/03',next:'2026/07/03',st:'<span class="due">⏰ 5天</span>'},{n:'🤧 犬舍咳',last:'2026/01/15',next:'2027/01/15',st:'<span class="done">✓ 完成</span>'}],
   meds:[{n:'抗組織胺',d:'過敏性皮膚炎',dose:'每日1錠·飯後',w:100,f1:'7/7 天',f2:'<span class="done">已完成 ✓</span>',ic:'💊'},{n:'心絲蟲預防',d:'每月口服',dose:'每月5日·一次',w:60,f1:'下次 7/05',f2:'<span class="due">3天後</span>',ic:'🪱'},{n:'關節保健',d:'葡萄糖胺',dose:'每日1錠·長期',w:45,f1:'長期保養',f2:'進行中',ic:'🦴'}],
-  logs:[{d:'2026/06/28',h:'😺 精神很好',p:'食慾正常，散步 40 分鐘活力充沛。便便成形良好。',c:''},{d:'2026/06/25',h:'🍽️ 換新飼料第一天',p:'低敏羊肉飼料接受度高，皮膚搔癢明顯改善。',c:'teal'}]},
- {id:'naicha',name:'奶茶',emoji:'🐱',photo:'https://placekitten.com/240/240',color:'#cce9e1',
-  breed:'米克斯貓',sex:'母 · 已絕育',birth:'2024/05/02',age:'2 歲',blood:'A 型',next:'7/5 用藥',
+  logs:[{d:'2026/06/28',h:'😺 精神很好',p:'食慾正常，散步 40 分鐘活力充沛。便便成形良好。',c:''},{d:'2026/06/25',h:'🍽️ 換新飼料第一天',p:'低敏羊肉飼料接受度高，皮膚搔癢明顯改善。',c:'b'}]},
+ {id:'naicha',name:'奶茶',emoji:'🐱',photo:'https://placekitten.com/240/240',
+  breed:'米克斯貓',sex:'母·已絕育',birth:'2024/05/02',age:'2 歲',blood:'A 型',next:'7/5 用藥',
+  score:88,weight:'4.0',water:180,waterGoal:220,activity:30,
   weights:[{m:'1月',v:3.5},{m:'2月',v:3.6},{m:'3月',v:3.7},{m:'4月',v:3.8},{m:'5月',v:3.9},{m:'6月',v:4.0}],
   ideal:[{lo:3.3,hi:4.4},{lo:3.4,hi:4.5},{lo:3.4,hi:4.5},{lo:3.5,hi:4.6},{lo:3.5,hi:4.6},{lo:3.5,hi:4.6}],
   hint:'成年母貓理想 3.5–4.6kg，體態維持良好。',
-  meas:[{d:'2026/06/22',t:'體重 4.0 kg',s:'穩定',ic:'⚖️',tile:'tile-vet'},{d:'2026/06/22',t:'BCS 5/9',s:'✓',ic:'🍖',tile:'tile-vax'},{d:'2026/06/10',t:'牙齒檢查',s:'正常',ic:'🦷',tile:'tile-med'}],
-  vet:[{d:'2026/04/10 · 喵喵貓專科',h:'✂️ 絕育手術',p:'手術順利，術後恢復良好。頭套配戴 7 天，傷口無感染。',c:''},{d:'2026/02/14 · 喵喵貓專科',h:'❤️ 年度健檢',p:'腎指數正常，建議定期補水與濕食。',c:'teal'}],
+  meas:[{d:'2026/06/22',t:'體重 4.0 kg',s:'穩定',ic:'⚖️',dot:'d-pink'},{d:'2026/06/22',t:'BCS 5/9',s:'✓',ic:'🍖',dot:'d-green'},{d:'2026/06/10',t:'牙齒檢查',s:'正常',ic:'🦷',dot:'d-blue'}],
+  vet:[{d:'2026/04/10 · 喵喵貓專科',h:'✂️ 絕育手術',p:'手術順利，術後恢復良好。頭套配戴 7 天，傷口無感染。',c:''},{d:'2026/02/14 · 喵喵貓專科',h:'❤️ 年度健檢',p:'腎指數正常，建議定期補水與濕食。',c:'b'}],
   vax:[{n:'🦠 三合一',last:'2026/05/02',next:'2027/05/02',st:'<span class="done">✓ 完成</span>'},{n:'🐈 狂犬病',last:'2026/05/02',next:'2027/05/02',st:'<span class="done">✓ 完成</span>'},{n:'🩸 貓白血病',last:'2026/05/02',next:'2027/05/02',st:'<span class="done">✓ 完成</span>'}],
   meds:[{n:'心絲蟲預防(貓)',d:'每月滴劑',dose:'每月5日·後頸',w:60,f1:'下次 7/05',f2:'<span class="due">3天後</span>',ic:'🪱'},{n:'化毛膏',d:'毛球控制',dose:'每週2次',w:50,f1:'長期',f2:'進行中',ic:'🧴'}],
-  logs:[{d:'2026/06/27',h:'😻 活力滿滿',p:'追逗貓棒 20 分鐘，食慾佳，喝水量增加。',c:''},{d:'2026/06/21',h:'🧶 換季掉毛',p:'梳毛清出不少廢毛，已加強化毛膏。',c:'violet'}]},
- {id:'mocha',name:'摩卡',emoji:'🦮',photo:'https://placedog.net/240/241?id=58',color:'#e7e1fb',
-  breed:'黃金獵犬',sex:'公 · 未結紮',birth:'2020/08/10',age:'6 歲',blood:'DEA 1.1-',next:'今日餵藥',
+  logs:[{d:'2026/06/27',h:'😻 活力滿滿',p:'追逗貓棒 20 分鐘，食慾佳，喝水量增加。',c:''},{d:'2026/06/21',h:'🧶 換季掉毛',p:'梳毛清出不少廢毛，已加強化毛膏。',c:'p'}]},
+ {id:'mocha',name:'摩卡',emoji:'🦮',photo:'https://placedog.net/240/241?id=58',
+  breed:'黃金獵犬',sex:'公·未結紮',birth:'2020/08/10',age:'6 歲',blood:'DEA 1.1-',next:'今日餵藥',
+  score:79,weight:'30.6',water:600,waterGoal:700,activity:25,
   weights:[{m:'1月',v:29.2},{m:'2月',v:29.6},{m:'3月',v:30.0},{m:'4月',v:30.2},{m:'5月',v:30.5},{m:'6月',v:30.6}],
   ideal:[{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32}],
-  hint:'黃金獵犬理想 27–32kg，目前略偏上限，建議控制點心。',
-  meas:[{d:'2026/06/18',t:'體重 30.6 kg',s:'+0.1kg',ic:'⚖️',tile:'tile-vet'},{d:'2026/06/18',t:'身高 58 cm',s:'穩定',ic:'📏',tile:'tile-w'},{d:'略偏胖',t:'BCS 6/9',s:'⚠',ic:'🍖',tile:'tile-care'}],
-  vet:[{d:'2026/05/20 · 大同動物醫院',h:'🦴 髖關節檢查',p:'大型犬常見輕度髖關節鬆弛，建議體重控制與關節保養。',c:''},{d:'2026/03/05 · 大同動物醫院',h:'❤️ 年度健檢',p:'血檢正常，耳道輕微發炎，開立耳藥。',c:'teal'}],
+  hint:'黃金獵犬理想 27–32kg，略偏上限，建議控制點心。',
+  meas:[{d:'2026/06/18',t:'體重 30.6 kg',s:'+0.1kg',ic:'⚖️',dot:'d-pink'},{d:'2026/06/18',t:'身高 58 cm',s:'穩定',ic:'📏',dot:'d-orange'},{d:'略偏胖',t:'BCS 6/9',s:'⚠',ic:'🍖',dot:'d-orange'}],
+  vet:[{d:'2026/05/20 · 大同動物醫院',h:'🦴 髖關節檢查',p:'大型犬常見輕度髖關節鬆弛，建議體重控制與關節保養。',c:''},{d:'2026/03/05 · 大同動物醫院',h:'❤️ 年度健檢',p:'血檢正常，耳道輕微發炎，開立耳藥。',c:'b'}],
   vax:[{n:'🦠 八合一',last:'2025/09/01',next:'2026/09/01',st:'<span class="done">✓ 完成</span>'},{n:'🐕 狂犬病',last:'2025/09/01',next:'2026/09/01',st:'<span class="done">✓ 完成</span>'},{n:'💧 鉤端螺旋體',last:'2026/03/05',next:'2027/03/05',st:'<span class="done">✓ 完成</span>'}],
   meds:[{n:'關節保健',d:'葡萄糖胺+軟骨素',dose:'每日2錠·長期',w:55,f1:'長期保養',f2:'進行中',ic:'🦴'},{n:'心絲蟲預防',d:'每月口服',dose:'每月5日·一次',w:60,f1:'下次 7/05',f2:'<span class="due">3天後</span>',ic:'🪱'},{n:'耳道清潔藥',d:'外耳炎',dose:'每日1次',w:70,f1:'複查 7/25',f2:'進行中',ic:'👂'}],
-  logs:[{d:'2026/06/28',h:'🐾 散步偏喘',p:'天熱，散步縮短至 25 分鐘，注意補水與防中暑。',c:''},{d:'2026/06/24',h:'⚖️ 控制體重',p:'減少點心，改用低卡零食。關節藥按時餵食。',c:'teal'}]}
+  logs:[{d:'2026/06/28',h:'🐾 散步偏喘',p:'天熱，散步縮短至 25 分鐘，注意補水與防中暑。',c:''},{d:'2026/06/24',h:'⚖️ 控制體重',p:'減少點心，改用低卡零食。關節藥按時餵食。',c:'b'}]}
 ];
 let cur=0;
-function av(p,klass){return `<div class="${klass} avwrap"><img class="imground" src="${p.photo}" alt="${p.name}" onerror="this.parentNode.textContent='${p.emoji}'"></div>`;}
+function imgTag(p){return `<img src="${p.photo}" onerror="this.parentNode.textContent='${p.emoji}'">`;}
 
-function renderSwitch(){$('#healthSwitch').innerHTML=pets.map((p,i)=>`<div class="pchip ${i===cur?'sel':''}" onclick="selectPet(${i})">${av(p,'pface')}<div><b>${p.name}</b><small>${p.breed}·${p.age}</small></div></div>`).join('')+'<div class="pchip add" onclick="toast(\'新增毛孩檔案\')">＋ 新增</div>';}
-function renderProfile(){const p=pets[cur];$('#petProfile').innerHTML=`${av(p,'bigface')}<div style="flex:1"><h2>${p.name} ${p.emoji}</h2><div class="meta"><span class="pill">${p.breed}</span><span class="pill">${p.sex}</span><span class="pill">${p.birth}</span><span class="pill">血型 <b>${p.blood}</b></span></div></div>`;$('#logFace').innerHTML=`<img class="imground" src="${p.photo}" onerror="this.parentNode.textContent='${p.emoji}'">`;$('#growthHint').textContent=p.hint;}
-function renderMeas(){$('#measList').innerHTML=pets[cur].meas.map(m=>`<div class="rem"><div class="dot ${m.tile}">${m.ic}</div><div><b>${m.t}</b><small>${m.d}</small></div><div class="when" style="color:var(--mint2)">${m.s}</div></div>`).join('');}
-function renderVet(){$('#vetTl').innerHTML=pets[cur].vet.map(v=>`<div class="tl-item ${v.c}"><div class="tl-card"><div class="date">${v.d}</div><h4>${v.h}</h4><p>${v.p}</p></div></div>`).join('');}
-function renderVax(){$('#vaxBody').innerHTML=pets[cur].vax.map(v=>`<tr><td>${v.n}</td><td>${v.last}</td><td>${v.next}</td><td>${v.st}</td></tr>`).join('');}
-function renderMed(){$('#medList').innerHTML=pets[cur].meds.map(m=>`<div class="med"><div class="mh"><div class="ic">${m.ic}</div><div><b>${m.n}</b><br><small>${m.d}</small></div></div><div style="font-size:12.5px;color:var(--ink-soft)">${m.dose}</div><div class="prog"><i style="width:${m.w}%"></i></div><div class="mfoot"><span>${m.f1}</span><span>${m.f2}</span></div></div>`).join('');}
-function renderLog(){$('#logTl').innerHTML=pets[cur].logs.map(l=>`<div class="tl-item ${l.c}"><div class="tl-card"><div class="date">${l.d}</div><h4>${l.h}</h4><p>${l.p}</p></div></div>`).join('');}
-function renderHealth(){renderSwitch();renderProfile();renderMeas();renderVet();renderVax();renderMed();renderLog();drawGrowth();}
-function selectPet(i){cur=i;renderHealth();}
-
-function renderWeek(){
-  const days=[['日',28,''],['一',29,'today'],['二',30,'med'],['三',1,''],['四',2,''],['五',3,'vax'],['六',4,'']];
-  $('#weekStrip').innerHTML=days.map(d=>`<div class="wday ${d[2]==='today'?'on':''}" onclick="go('reminders')"><span>${d[0]}</span><b>${d[1]}</b>${(d[2]&&d[2]!=='today')?'<i class="wdot"></i>':''}</div>`).join('');
-}
-function renderData(){
-  const d=[{ic:'🐾',n:'3',l:'毛孩',bg:'var(--primary)'},{ic:'🔔',n:'4',l:'本週提醒',bg:'var(--coral)'},{ic:'💊',n:'2',l:'用藥中',bg:'var(--purple)'}];
-  $('#dataCards').innerHTML=d.map(x=>`<div class="dcard" style="background:${x.bg}"><div class="di">${x.ic}</div><div class="dn">${x.n}</div><div class="dl">${x.l}</div></div>`).join('');
-}
-function renderWeekChart(){
-  const days=[['一',70],['二',90],['三',60],['四',100],['五',80],['六',50],['日',85]];
-  $('#weekChart').innerHTML='<div class="wbars">'+days.map(d=>`<div class="wbar"><div class="bk"><div class="bar" style="height:${d[1]}%"></div></div><small>${d[0]}</small></div>`).join('')+'</div>';
-}
+/* ===== HOME ===== */
 function renderHome(){
-  $('#homePets').innerHTML=pets.map((p,i)=>`<div class="petcard" style="background:${p.color}" onclick="selectPet(${i});go('health')">${av(p,'pcph')}<div><b>${p.name}</b><small>${p.breed}</small><div class="nextpill">${p.next}</div></div></div>`).join('');
-  const today=[{tag:'每日',bg:'#ffd9cf',ic:'🦴',t:'關節保健餵藥',s:'摩卡 · 今天'},{tag:'每週',bg:'#cfeae2',ic:'🧴',t:'化毛膏',s:'奶茶 · 今天'},{tag:'今天',bg:'#ffe6c4',ic:'🚶',t:'散步 + 量體重',s:'豆豆 · 今天'},{tag:'今天',bg:'#e7e1fb',ic:'💧',t:'補水提醒',s:'全部毛孩'}];
-  $('#todayList').innerHTML=today.map(t=>`<div class="plan" style="background:${t.bg}"><div class="ptag">${t.tag}</div><div class="pemoji">${t.ic}</div><b>${t.t}</b><small>${t.s}</small></div>`).join('');
+  $('#homePets').innerHTML=pets.map((p,i)=>`<div class="petcard ${i===cur?'sel':''}" onclick="selectPet(${i});go('health')"><div class="ph">${imgTag(p)}</div><b>${p.name}</b><small>${p.next}</small></div>`).join('')+`<div class="petcard add" onclick="addPetPhoto(-1)"><div class="plus">＋</div><small>新增</small></div>`;
+  const today=[{ic:'🦴',dot:'d-orange',t:'關節保健餵藥',s:'摩卡 · 每日',w:'今天'},{ic:'🧴',dot:'d-purple',t:'化毛膏',s:'奶茶 · 每週',w:'今天'},{ic:'💧',dot:'d-blue',t:'補水提醒',s:'全部毛孩',w:'今天'}];
+  $('#todayList').innerHTML=today.map(t=>`<div class="rem"><div class="dot ${t.dot}">${t.ic}</div><div><b>${t.t}</b><small>${t.s}</small></div><div class="when" style="color:var(--health-green)">${t.w}</div></div>`).join('');
 }
 
+/* ===== HEALTH ===== */
+function ringSVG(score){
+  const r=70,c=2*Math.PI*r,off=c*(1-score/100);
+  return `<svg viewBox="0 0 170 170" width="170" height="170"><circle cx="85" cy="85" r="${r}" fill="none" stroke="#eef1f0" stroke-width="14"/><circle cx="85" cy="85" r="${r}" fill="none" stroke="url(#sg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 85 85)"/><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#41DF82"/><stop offset="1" stop-color="#35B89F"/></linearGradient></defs></svg><div class="big"><b>${score}</b><small>健康分數</small></div>`;
+}
+function renderHealth(){
+  const p=pets[cur];
+  $('#healthSub').textContent=`${p.name} · ${p.breed} · ${p.age}`;
+  $('#healthPets').innerHTML=pets.map((x,i)=>`<div class="petcard ${i===cur?'sel':''}" onclick="selectPet(${i})"><div class="ph">${imgTag(x)}</div><b>${x.name}</b><small>${x.breed}</small></div>`).join('');
+  $('#scoreRing').innerHTML=ringSVG(p.score);
+  $('#scoreLabel').innerHTML=p.score>=90?'狀態極佳 <span>很棒！</span>':p.score>=80?'狀態良好 <span>保持住</span>':'需多留意 <span>注意照護</span>';
+  $('#metrics').innerHTML=`
+    <div class="metric m-weight"><div class="ic">⚖️</div><div class="num">${p.weight}<span>kg</span></div><div class="lbl">體重</div></div>
+    <div class="metric m-water"><div class="ic">💧</div><div class="num">${p.water}<span>ml</span></div><div class="lbl">飲水 / ${p.waterGoal}</div></div>
+    <div class="metric m-act"><div class="ic">🐾</div><div class="num">${p.activity}<span>分</span></div><div class="lbl">今日活動</div></div>`;
+}
+
+/* ===== RECORDS ===== */
+function renderRecords(){
+  const p=pets[cur];
+  $('#recordsSub').textContent=`${p.name} 的就醫・疫苗・用藥・體重・日誌`;
+  $('#recordsPets').innerHTML=pets.map((x,i)=>`<div class="petcard ${i===cur?'sel':''}" onclick="selectPet(${i})"><div class="ph">${imgTag(x)}</div><b>${x.name}</b><small>${x.breed}</small></div>`).join('');
+  $('#vetTl').innerHTML=p.vet.map(v=>`<div class="tl-item ${v.c}"><div class="tl-card"><div class="date">${v.d}</div><h4>${v.h}</h4><p>${v.p}</p></div></div>`).join('');
+  $('#vaxBody').innerHTML=p.vax.map(v=>`<tr><td>${v.n}</td><td>${v.last}</td><td>${v.next}</td><td>${v.st}</td></tr>`).join('');
+  $('#medList').innerHTML=p.meds.map(m=>`<div class="med"><div class="mh"><div class="ic">${m.ic}</div><div><b>${m.n}</b><br><small>${m.d}</small></div></div><div style="font-size:12.5px;color:var(--muted);font-weight:700">${m.dose}</div><div class="prog"><i style="width:${m.w}%"></i></div><div class="mfoot"><span>${m.f1}</span><span>${m.f2}</span></div></div>`).join('');
+  $('#measList').innerHTML=p.meas.map(m=>`<div class="rem"><div class="dot ${m.dot}">${m.ic}</div><div><b>${m.t}</b><small>${m.d}</small></div><div class="when" style="color:var(--health-green)">${m.s}</div></div>`).join('');
+  $('#logTl').innerHTML=p.logs.map(l=>`<div class="tl-item ${l.c}"><div class="tl-card"><div class="date">${l.d}</div><h4>${l.h}</h4><p>${l.p}</p></div></div>`).join('');
+  $('#growthHint').textContent=p.hint;
+  drawGrowth();
+}
+
+/* ===== VET ===== */
+function renderVet(){
+  const p=pets[cur];
+  $('#vetSub').textContent=p.name;
+  $('#vetTl2').innerHTML=p.vet.map(v=>`<div class="tl-item ${v.c}"><div class="tl-card"><div class="date">${v.d}</div><h4>${v.h}</h4><p>${v.p}</p></div></div>`).join('');
+}
+
+/* ===== PROFILE ===== */
+function renderProfile(){
+  $('#profilePets').innerHTML=pets.map((p,i)=>`<div class="prow"><div class="ph">${imgTag(p)}</div><div class="pi"><b>${p.name}</b><small>${p.breed} · ${p.sex} · ${p.age}</small></div><button class="upload" onclick="addPetPhoto(${i})">📷 上傳照片</button></div>`).join('');
+}
+
+/* photo upload */
+let photoTarget=-1;
+$('#photoInput').addEventListener('change',function(e){
+  const f=e.target.files[0];if(!f)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    if(photoTarget>=0){pets[photoTarget].photo=ev.target.result;renderAll();toast('照片已更新 ✓');}
+    e.target.value='';
+  };
+  reader.readAsDataURL(f);
+});
+function addPetPhoto(i){if(i<0){toast('新增毛孩：請先上傳照片 🐾');photoTarget=0;}else{photoTarget=i;}$('#photoInput').click();}
+
+function selectPet(i){cur=i;renderAll();}
+function renderAll(){renderHome();renderHealth();renderRecords();renderVet();renderProfile();}
+
+/* nav */
 function go(v){
   $$('.view').forEach(s=>s.classList.toggle('active',s.id==='v-'+v));
-  $$('.tabbar button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
+  $$('.tabbar [data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
   const cd=$('#circleDetail'),cl=$('#circleList');if(cd&&cl){cd.style.display='none';cl.style.display='block';}
   $('#viewport').scrollTo({top:0,behavior:'smooth'});
 }
-$$('.tabbar [data-view]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
-$$('#seg button').forEach(b=>b.addEventListener('click',()=>{$$('#seg button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.hpane').forEach(p=>p.classList.toggle('active',p.id==='h-'+b.dataset.h));}));
-$$('.kcat button').forEach(b=>b.addEventListener('click',()=>{$$('.kcat button').forEach(x=>x.classList.remove('on'));b.classList.add('on');}));
-function selSeg(h){$$('#seg button').forEach(x=>x.classList.toggle('active',x.dataset.h===h));$$('.hpane').forEach(p=>p.classList.toggle('active',p.id==='h-'+h));}
+$$('.tabbar [data-view],#recordsTabHidden').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
+$$('#rseg button').forEach(b=>b.addEventListener('click',()=>{$$('#rseg button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.rpane').forEach(p=>p.classList.toggle('active',p.id==='r-'+b.dataset.r));}));
+function selRseg(r){$$('#rseg button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));$$('.rpane').forEach(p=>p.classList.toggle('active',p.id==='r-'+r));}
 
-let tT;function toast(m){const t=$('#toast');t.textContent=m;t.style.transform='translate(-50%,0)';clearTimeout(tT);tT=setTimeout(()=>t.style.transform='translate(-50%,140px)',1900);}
+let tT;function toast(m){const t=$('#toast');t.textContent=m;t.style.transform='translate(-50%,0)';clearTimeout(tT);tT=setTimeout(()=>t.style.transform='translate(-50%,150px)',1900);}
 
+/* circles */
 let circles=[
- {id:1,name:'柴犬同好會',cat:'breed',ic:'🐕',members:'12.4k',desc:'柴柴飼主經驗交流、固執日常與表情包'},
- {id:2,name:'米克斯貓俱樂部',cat:'breed',ic:'🐈',members:'8.9k',desc:'浪浪認養與混血貓的多元日常'},
+ {id:1,name:'柴犬同好會',cat:'breed',ic:'🐕',members:'12.4k',desc:'柴柴飼主經驗交流與表情包'},
+ {id:2,name:'米克斯貓俱樂部',cat:'breed',ic:'🐈',members:'8.9k',desc:'浪浪認養與混血貓日常'},
  {id:3,name:'黃金獵犬家族',cat:'breed',ic:'🦮',members:'15.1k',desc:'大型犬照護、訓練與出遊'},
- {id:4,name:'法鬥 / 短鼻犬',cat:'breed',ic:'🐶',members:'6.2k',desc:'呼吸道與皮膚皺褶照護'},
- {id:5,name:'台北毛孩聚',cat:'region',ic:'🏙️',members:'9.7k',desc:'雙北寵物友善地點、揪團散步'},
- {id:6,name:'台中汪汪團',cat:'region',ic:'🌆',members:'5.4k',desc:'中部散步團與在地獸醫推薦'},
+ {id:5,name:'台北毛孩聚',cat:'region',ic:'🏙️',members:'9.7k',desc:'雙北寵物友善地點、揪團'},
  {id:7,name:'高雄喵星人',cat:'region',ic:'🌴',members:'4.1k',desc:'南部貓友交流與送養'},
- {id:8,name:'幼犬新手村',cat:'topic',ic:'🐣',members:'20.3k',desc:'第一次養狗、社會化、定點便溺'},
- {id:9,name:'高齡犬照護',cat:'topic',ic:'🦴',members:'7.8k',desc:'老年犬飲食、關節保養與安寧'},
- {id:10,name:'寵物鮮食研究',cat:'topic',ic:'🍲',members:'11.6k',desc:'自製鮮食食譜與營養比例'},
- {id:11,name:'行為訓練交流',cat:'topic',ic:'🎓',members:'9.2k',desc:'分離焦慮、吠叫、響片訓練'},
- {id:12,name:'浪浪中途之家',cat:'topic',ic:'🏠',members:'13.5k',desc:'送養、中途與 TNR 資訊'}
+ {id:8,name:'幼犬新手村',cat:'topic',ic:'🐣',members:'20.3k',desc:'第一次養狗、社會化'},
+ {id:9,name:'高齡犬照護',cat:'topic',ic:'🦴',members:'7.8k',desc:'老年犬飲食、關節保養'},
+ {id:10,name:'寵物鮮食研究',cat:'topic',ic:'🍲',members:'11.6k',desc:'自製鮮食食譜與營養'}
 ];
 let joined={1:true,2:true,5:true,8:true};
 const catName={breed:'品種',region:'地區',topic:'主題'};
 let cf='all';
 function renderCircles(f){
   if(f)cf=f;
-  const mine=circles.filter(c=>joined[c.id]);
-  $('#myCircles').innerHTML=mine.length?mine.map(c=>`<div class="pchip" onclick="openCircle(${c.id})"><div class="pface" style="display:grid;place-items:center;font-size:22px;background:#f4f3f7">${c.ic}</div><div><b>${c.name}</b><small>${c.members} 位成員</small></div></div>`).join(''):'<div class="pchip add">尚未加入圈圈</div>';
   const list=cf==='all'?circles:circles.filter(c=>c.cat===cf);
-  $('#circleCards').innerHTML=list.map(c=>`<div class="circle" onclick="openCircle(${c.id})"><div class="ca">${c.ic}</div><div class="cinfo"><b>${c.name}</b><div class="ctags"><span class="cat-tag">${catName[c.cat]}</span><span class="mem-tag">👥 ${c.members}</span></div><div class="cdesc">${c.desc}</div></div><button class="joinbtn ${joined[c.id]?'joined':'join'}" onclick="event.stopPropagation();toggleJoin(${c.id})">${joined[c.id]?'已加入':'＋ 加入'}</button></div>`).join('');
+  $('#circleCards').innerHTML=list.map(c=>`<div class="rem" onclick="openCircle(${c.id})" style="cursor:pointer"><div class="dot d-green" style="font-size:22px">${c.ic}</div><div><b>${c.name}</b><small>${catName[c.cat]} · 👥 ${c.members}</small></div><button class="upload" style="background:${joined[c.id]?'#f2f5f4':'var(--health-green)'};color:${joined[c.id]?'var(--muted)':'#fff'}" onclick="event.stopPropagation();toggleJoin(${c.id})">${joined[c.id]?'已加入':'＋加入'}</button></div>`).join('');
 }
-$$('#circleFilter button').forEach(b=>b.addEventListener('click',()=>{$$('#circleFilter button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderCircles(b.dataset.c);}));
+$$('#circleFilter button').forEach(b=>b.addEventListener('click',()=>{$$('#circleFilter button').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCircles(b.dataset.c);}));
 function toggleJoin(id){joined[id]=!joined[id];renderCircles();const c=circles.find(x=>x.id===id);toast(joined[id]?'已加入 '+c.name+' ✓':'已退出 '+c.name);}
-const cposts=[
- {t:'🍗 營養',u:'柴犬麻 Amy',a:'🐶',time:'3 小時前',p:'柴柴最近超挑食，乾飼料不吃只想吃肉肉，換濕食會比較好嗎？😢',l:38,r:42},
- {t:'🩺 經驗分享',u:'貓奴日常',a:'🐱',time:'昨天',p:'結紮後照護重點：頭套戴 7 天、傷口每天觀察、前兩天少量多餐。',l:56,r:28},
- {t:'🦷 專家解答',u:'林獸醫師 ✔ 認證',a:'👩‍⚕️',time:'2 天前',p:'洗牙時機：牙結石造成牙齦發炎、口臭就建議洗牙。麻醉前務必血檢。',l:124,r:19}
-];
-function postHtml(p){return `<div class="card post"><span class="topic">${p.t}</span><div class="ph"><div class="pa">${p.a}</div><div><b>${p.u}</b><small>${p.time}</small></div></div><p>${p.p}</p><div class="acts"><span>👍 ${p.l}</span><span>💬 ${p.r}</span><span>🔖 收藏</span></div></div>`;}
-function openCircle(id){const c=circles.find(x=>x.id===id);$('#circleDetail').innerHTML=`<div class="cbar"><button class="cback" onclick="backToCircles()">←</button><b style="font-size:15px">${c.name}</b></div><div class="cbanner"><div class="cbh"><div class="cba">${c.ic}</div><div><h2>${c.name}</h2><small>${catName[c.cat]}圈 · 👥 ${c.members} 位成員</small></div></div><button class="joinbtn ${joined[c.id]?'joined':'join'}" style="margin-top:12px;padding:9px 18px" onclick="toggleJoin(${c.id});openCircle(${c.id})">${joined[c.id]?'✓ 已加入':'＋ 加入圈圈'}</button></div><div class="card"><div class="composer"><div class="av solid" style="width:38px;height:38px;border-radius:12px">A</div><input id="circleInput" placeholder="在 ${c.name} 發文…"><button class="btn cor" onclick="addCirclePost()">發布</button></div></div><div id="circleFeed">${cposts.map(postHtml).join('')}</div>`;$('#circleList').style.display='none';$('#circleDetail').style.display='block';$('#viewport').scrollTo({top:0});}
-function addCirclePost(){const i=$('#circleInput'),v=i.value.trim();if(!v){toast('請輸入內容');return;}const el=document.createElement('div');el.className='card post';el.innerHTML='<span class="topic">🐾 我的貼文</span><div class="ph"><div class="pa">A</div><div><b>Ariel</b><small>剛剛</small></div></div><p>'+v.replace(/</g,'&lt;')+'</p><div class="acts"><span>👍 0</span><span>💬 0</span><span>🔖 收藏</span></div>';$('#circleFeed').prepend(el);i.value='';toast('已發布 ✓');}
+function openCircle(id){const c=circles.find(x=>x.id===id);$('#circleDetail').innerHTML=`<div style="display:flex;align-items:center;gap:10px;margin:2px 0 14px"><button onclick="backToCircles()" style="width:38px;height:38px;border-radius:13px;border:none;background:#f2f5f4;font-size:18px;cursor:pointer;font-weight:800">←</button><span style="font-size:18px;font-weight:900">${c.name}</span></div>
+  <div class="hero" style="background:linear-gradient(140deg,#b6a8f5,var(--care-purple))"><div class="tagrow"><span class="pill">${catName[c.cat]}圈</span></div><h2>${c.name}</h2><p>👥 ${c.members} 位成員</p><button class="cta" style="color:var(--care-purple)" onclick="toggleJoin(${c.id});openCircle(${c.id})">${joined[c.id]?'✓ 已加入':'＋ 加入圈圈'}</button></div>
+  <div class="card"><div style="display:flex;gap:10px;align-items:center"><div class="dot d-pink">A</div><input id="circleInput" style="flex:1;padding:11px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fafbfb;font-family:inherit;font-weight:600;outline:none" placeholder="在 ${c.name} 發文…"><button class="btn green" style="padding:11px 16px" onclick="addCirclePost()">發布</button></div></div>
+  <div id="circleFeed">
+    <div class="card"><div style="font-size:11px;font-weight:900;color:var(--health-green);margin-bottom:6px">🍗 營養</div><b style="font-size:14px">柴犬麻 Amy · 3 小時前</b><p style="font-size:13.5px;font-weight:600;margin-top:6px;line-height:1.6">柴柴最近超挑食，換濕食會比較好嗎？😢</p><div style="margin-top:10px;color:var(--muted);font-weight:700;font-size:12px">👍 38　💬 42</div></div>
+    <div class="card"><div style="font-size:11px;font-weight:900;color:var(--pet-pink);margin-bottom:6px">🩺 經驗分享</div><b style="font-size:14px">貓奴日常 · 昨天</b><p style="font-size:13.5px;font-weight:600;margin-top:6px;line-height:1.6">結紮後照護：頭套戴 7 天、傷口每天觀察、少量多餐。</p><div style="margin-top:10px;color:var(--muted);font-weight:700;font-size:12px">👍 56　💬 28</div></div>
+  </div>`;$('#circleList').style.display='none';$('#circleDetail').style.display='block';$('#viewport').scrollTo({top:0});}
+function addCirclePost(){const i=$('#circleInput'),v=i.value.trim();if(!v){toast('請輸入內容');return;}const el=document.createElement('div');el.className='card';el.innerHTML='<div style="font-size:11px;font-weight:900;color:var(--health-green);margin-bottom:6px">🐾 我的貼文</div><b style="font-size:14px">Ariel · 剛剛</b><p style="font-size:13.5px;font-weight:600;margin-top:6px;line-height:1.6">'+v.replace(/</g,'&lt;')+'</p><div style="margin-top:10px;color:var(--muted);font-weight:700;font-size:12px">👍 0　💬 0</div>';$('#circleFeed').prepend(el);i.value='';toast('已發布 ✓');}
 function backToCircles(){$('#circleDetail').style.display='none';$('#circleList').style.display='block';}
 
-let calY=2026, calM=6, selDay='2026-07-03';
+/* calendar */
+let calY=2026,calM=6,selDay='2026-07-03';
 const events=[
  {d:'2026-06-29',type:'care',pet:'摩卡',title:'關節保健餵藥'},
  {d:'2026-06-30',type:'med',pet:'奶茶',title:'化毛膏'},
  {d:'2026-07-03',type:'vax',pet:'豆豆',title:'狂犬病疫苗到期'},
  {d:'2026-07-05',type:'med',pet:'奶茶 / 摩卡',title:'心絲蟲預防藥'},
  {d:'2026-07-10',type:'vax',pet:'豆豆',title:'八合一疫苗到期'},
- {d:'2026-07-13',type:'vet',pet:'豆豆',title:'年度健康檢查（含血檢）'},
+ {d:'2026-07-13',type:'vet',pet:'豆豆',title:'年度健康檢查'},
  {d:'2026-07-18',type:'care',pet:'全部毛孩',title:'洗澡日'},
- {d:'2026-07-20',type:'care',pet:'豆豆',title:'月度體重量測'},
  {d:'2026-07-25',type:'med',pet:'摩卡',title:'耳藥複查'}
 ];
-const evMap={vax:['💉','疫苗','tile-vax'],med:['💊','用藥','tile-med'],vet:['🩺','就醫','tile-vet'],care:['🛁','照護','tile-care']};
-function pad2(n){return String(n).padStart(2,'0');}
-function evOn(ds){return events.filter(e=>e.d===ds);}
+const evMap={vax:['💉','疫苗','d-green'],med:['💊','用藥','d-purple'],vet:['🩺','就醫','d-pink'],care:['🛁','照護','d-orange']};
+const pad2=n=>String(n).padStart(2,'0');
+const evOn=ds=>events.filter(e=>e.d===ds);
 function renderCal(){
   $('#calDow').innerHTML=['日','一','二','三','四','五','六'].map(d=>`<div class="cal-dow">${d}</div>`).join('');
-  const first=new Date(calY,calM,1).getDay(), dim=new Date(calY,calM+1,0).getDate();
-  let cells='';for(let i=0;i<first;i++)cells+='<div class="cal-cell empty"></div>';
-  for(let d=1;d<=dim;d++){const ds=`${calY}-${pad2(calM+1)}-${pad2(d)}`,evs=evOn(ds);const dots=evs.slice(0,3).map(e=>`<i class="evd ev-${e.type}"></i>`).join('');let cls='cal-cell';if(ds==='2026-06-29')cls+=' today';if(ds===selDay)cls+=' sel';cells+=`<div class="${cls}" onclick="selectDay('${ds}')"><span>${d}</span><div class="evdots">${dots}</div></div>`;}
+  const first=new Date(calY,calM,1).getDay(),dim=new Date(calY,calM+1,0).getDate();let cells='';
+  for(let i=0;i<first;i++)cells+='<div class="cal-cell empty"></div>';
+  for(let d=1;d<=dim;d++){const ds=`${calY}-${pad2(calM+1)}-${pad2(d)}`,evs=evOn(ds);const dots=evs.slice(0,3).map(e=>`<i class="evd ${e.type}"></i>`).join('');let cls='cal-cell';if(ds==='2026-06-29')cls+=' today';if(ds===selDay)cls+=' sel';cells+=`<div class="${cls}" onclick="selectDay('${ds}')"><span>${d}</span><div class="evdots">${dots}</div></div>`;}
   $('#calGrid').innerHTML=cells;$('#calTitle').textContent=`${calY} 年 ${calM+1} 月`;renderDayEvents();
 }
-function renderDayEvents(){const evs=evOn(selDay),pp=selDay.split('-');let html=`<div class="day-h">${parseInt(pp[1])}月${parseInt(pp[2])}日 · ${evs.length} 項提醒</div>`;html+=evs.length?evs.map(e=>{const m=evMap[e.type];return `<div class="rem"><div class="dot ${m[2]}">${m[0]}</div><div><b>${e.title}</b><small>${e.pet} · ${m[1]}</small></div><div class="when">${parseInt(e.d.split('-')[1])}/${parseInt(e.d.split('-')[2])}</div></div>`;}).join(''):'<div class="empty-day">這天沒有提醒 🐾</div>';$('#calEvents').innerHTML=html;}
+function renderDayEvents(){const evs=evOn(selDay),pp=selDay.split('-');let h=`<div class="day-h">${parseInt(pp[1])}月${parseInt(pp[2])}日 · ${evs.length} 項提醒</div>`;h+=evs.length?evs.map(e=>{const m=evMap[e.type];return `<div class="rem"><div class="dot ${m[2]}">${m[0]}</div><div><b>${e.title}</b><small>${e.pet} · ${m[1]}</small></div></div>`;}).join(''):'<div style="text-align:center;color:var(--muted);font-weight:700;padding:16px;font-size:13px">這天沒有提醒 🐾</div>';$('#calEvents').innerHTML=h;}
 function selectDay(ds){selDay=ds;renderCal();}
 function calNav(n){calM+=n;if(calM<0){calM=11;calY--}if(calM>11){calM=0;calY++}renderCal();}
-function calToday(){calY=2026;calM=5;selDay='2026-06-29';renderCal();}
 
+/* add record */
 let curType='growth';
 const forms={
   growth:`<div class="field"><label>日期</label><input type="date" id="f_date" value="${todayStr()}"></div><div class="field"><label>體重 (kg)</label><input type="number" step="0.1" id="f_val" placeholder="例如 8.5"></div><div class="field"><label>備註（選填）</label><input id="f_note" placeholder="例如 體態良好"></div>`,
-  vet:`<div class="field"><label>日期</label><input type="date" id="f_date" value="${todayStr()}"></div><div class="field"><label>醫院 / 主題</label><input id="f_val" placeholder="例如 中山動物醫院 · 健檢"></div><div class="field"><label>診斷與處置</label><textarea id="f_note" placeholder="醫師診斷、用藥、複診安排…"></textarea></div>`,
+  vet:`<div class="field"><label>日期</label><input type="date" id="f_date" value="${todayStr()}"></div><div class="field"><label>醫院 / 主題</label><input id="f_val" placeholder="例如 中山動物醫院 · 健檢"></div><div class="field"><label>診斷與處置</label><textarea id="f_note" placeholder="醫師診斷、用藥、複診…"></textarea></div>`,
   vax:`<div class="field"><label>疫苗名稱</label><input id="f_val" placeholder="例如 八合一 / 狂犬病"></div><div class="field"><label>接種日期</label><input type="date" id="f_date" value="${todayStr()}"></div><div class="field"><label>下次到期</label><input type="date" id="f_note" value="2027-06-29"></div>`,
-  med:`<div class="field"><label>藥品 / 保健品</label><input id="f_val" placeholder="例如 心絲蟲預防藥"></div><div class="field"><label>用法用量</label><input id="f_note" placeholder="例如 每日1錠·飯後"></div><div class="field"><label>療程說明（選填）</label><input id="f_date2" placeholder="例如 7天 / 長期"></div>`,
-  log:`<div class="field"><label>日期</label><input type="date" id="f_date" value="${todayStr()}"></div><div class="field"><label>標題</label><input id="f_val" placeholder="例如 精神很好"></div><div class="field"><label>內容</label><textarea id="f_note" placeholder="今天的食慾、排便、活動、精神…"></textarea></div>`,
-  rem:`<div class="field"><label>提醒項目</label><input id="f_val" placeholder="例如 回診 / 驅蟲"></div><div class="field"><label>日期</label><input type="date" id="f_date" value="2026-07-15"></div><div class="field"><label>類型</label><select id="f_note"><option value="vet">就醫</option><option value="vax">疫苗</option><option value="med">用藥</option><option value="care">照護</option></select></div>`
+  med:`<div class="field"><label>藥品 / 保健品</label><input id="f_val" placeholder="例如 心絲蟲預防藥"></div><div class="field"><label>用法用量</label><input id="f_note" placeholder="例如 每日1錠·飯後"></div><div class="field"><label>療程（選填）</label><input id="f_date2" placeholder="例如 7天 / 長期"></div>`,
+  log:`<div class="field"><label>日期</label><input type="date" id="f_date" value="${todayStr()}"></div><div class="field"><label>標題</label><input id="f_val" placeholder="例如 精神很好"></div><div class="field"><label>內容</label><textarea id="f_note" placeholder="今天的食慾、排便、活動、精神…"></textarea></div>`
 };
 function setType(t){curType=t;$$('#types .type').forEach(x=>x.classList.toggle('on',x.dataset.t===t));$('#formArea').innerHTML=forms[t];}
 $$('#types .type').forEach(el=>el.addEventListener('click',()=>setType(el.dataset.t)));
-function openSheet(t){setType(t||'growth');$('#sheetSub').textContent='新增到 '+pets[cur].name+' 的健康檔案。';$('#overlay').classList.add('show');$('#sheet').classList.add('show');}
+function openSheet(t){setType(t||'growth');$('#sheetSub').textContent='新增到 '+pets[cur].name+' 的健康檔案';$('#overlay').classList.add('show');$('#sheet').classList.add('show');}
 function closeSheet(){$('#overlay').classList.remove('show');$('#sheet').classList.remove('show');}
-function fmtDate(s){if(!s)return todayStr().replace(/-/g,'/');return s.replace(/-/g,'/');}
-function monthLabel(s){const d=s?new Date(s):new Date(2026,5,29);return (d.getMonth()+1)+'月';}
+const fmtDate=s=>s?s.replace(/-/g,'/'):todayStr().replace(/-/g,'/');
+const monthLabel=s=>((s?new Date(s):new Date(2026,5,29)).getMonth()+1)+'月';
 function saveRecord(){
-  const p=pets[cur], val=($('#f_val')||{}).value, note=($('#f_note')||{}).value, date=($('#f_date')||{}).value;
-  if(curType==='growth'){const w=parseFloat(val);if(!w){toast('請輸入體重 🐾');return;}p.weights.push({m:monthLabel(date),v:w});if(p.weights.length>8)p.weights.shift();p.meas.unshift({d:fmtDate(date),t:'體重 '+w+' kg',s:'更新',ic:'⚖️',tile:'tile-vet'});drawGrowth();renderMeas();go('health');selSeg('growth');}
-  else if(curType==='vet'){if(!val){toast('請輸入主題');return;}p.vet.unshift({d:fmtDate(date),h:'🩺 '+val,p:note||'（無補充說明）',c:''});renderVet();go('health');selSeg('vet');}
-  else if(curType==='vax'){if(!val){toast('請輸入疫苗名稱');return;}p.vax.unshift({n:'💉 '+val,last:fmtDate(date),next:fmtDate(note),st:'<span class="done">✓ 新登錄</span>'});renderVax();go('health');selSeg('vax');}
-  else if(curType==='med'){if(!val){toast('請輸入藥品名稱');return;}const course=($('#f_date2')||{}).value;p.meds.unshift({n:val,d:course||'療程',dose:note||'依醫囑',w:10,f1:course||'進行中',f2:'進行中',ic:'💊'});renderMed();go('health');selSeg('med');}
-  else if(curType==='log'){if(!val){toast('請輸入標題');return;}p.logs.unshift({d:fmtDate(date),h:'📝 '+val,p:note||'',c:''});renderLog();go('health');selSeg('log');}
-  else if(curType==='rem'){if(!val){toast('請輸入提醒項目');return;}const ds=date||'2026-07-15';events.push({d:ds,type:note||'care',pet:pets[cur].name,title:val});selDay=ds;calY=parseInt(ds.split('-')[0]);calM=parseInt(ds.split('-')[1])-1;renderCal();go('reminders');}
+  const p=pets[cur],val=($('#f_val')||{}).value,note=($('#f_note')||{}).value,date=($('#f_date')||{}).value;
+  if(curType==='growth'){const w=parseFloat(val);if(!w){toast('請輸入體重 🐾');return;}p.weights.push({m:monthLabel(date),v:w});if(p.weights.length>8)p.weights.shift();p.weight=String(w);p.meas.unshift({d:fmtDate(date),t:'體重 '+w+' kg',s:'更新',ic:'⚖️',dot:'d-pink'});renderHealth();renderRecords();go('records');selRseg('growth');}
+  else if(curType==='vet'){if(!val){toast('請輸入主題');return;}p.vet.unshift({d:fmtDate(date),h:'🩺 '+val,p:note||'（無補充）',c:''});renderRecords();renderVet();go('records');selRseg('vet');}
+  else if(curType==='vax'){if(!val){toast('請輸入疫苗名稱');return;}p.vax.unshift({n:'💉 '+val,last:fmtDate(date),next:fmtDate(note),st:'<span class="done">✓ 新登錄</span>'});renderRecords();go('records');selRseg('vax');}
+  else if(curType==='med'){if(!val){toast('請輸入藥品名稱');return;}const c=($('#f_date2')||{}).value;p.meds.unshift({n:val,d:c||'療程',dose:note||'依醫囑',w:10,f1:c||'進行中',f2:'進行中',ic:'💊'});renderRecords();go('records');selRseg('med');}
+  else if(curType==='log'){if(!val){toast('請輸入標題');return;}p.logs.unshift({d:fmtDate(date),h:'📝 '+val,p:note||'',c:''});renderRecords();go('records');selRseg('log');}
   closeSheet();toast('已儲存 ✓');
 }
-function quickAddLog(){const v=$('#quickLog').value.trim();if(!v){toast('請輸入內容');return;}pets[cur].logs.unshift({d:fmtDate(),h:'📝 今日紀錄',p:v,c:''});renderLog();$('#quickLog').value='';toast('日誌已記錄 ✓');}
 
+/* chart */
 function lineChart(el,data,ideal,w,h){
-  const pad={l:32,r:12,t:12,b:22};let lo=Infinity,hi=-Infinity;
+  const pad={l:30,r:12,t:12,b:22};let lo=Infinity,hi=-Infinity;
   data.forEach(d=>{lo=Math.min(lo,d.v);hi=Math.max(hi,d.v);});ideal.forEach(d=>{lo=Math.min(lo,d.lo);hi=Math.max(hi,d.hi);});
   const sp=(hi-lo)||1;lo-=sp*.18;hi+=sp*.18;
-  const x=i=>pad.l+(i/(data.length-1))*(w-pad.l-pad.r);
-  const y=v=>pad.t+(1-(v-lo)/(hi-lo))*(h-pad.t-pad.b);
+  const x=i=>pad.l+(i/(data.length-1))*(w-pad.l-pad.r),y=v=>pad.t+(1-(v-lo)/(hi-lo))*(h-pad.t-pad.b);
   const n=Math.min(data.length,ideal.length);
   let band='M'+ideal.slice(0,n).map((d,i)=>x(i)+','+y(d.hi)).join(' L');for(let i=n-1;i>=0;i--)band+=' L'+x(i)+','+y(ideal[i].lo);band+=' Z';
   const line='M'+data.map((d,i)=>x(i)+','+y(d.v)).join(' L');
   const area=line+' L'+x(data.length-1)+','+(h-pad.b)+' L'+x(0)+','+(h-pad.b)+' Z';
-  let grid='',lab='';for(let k=0;k<=4;k++){const val=lo+(hi-lo)*k/4,yy=y(val);grid+=`<line x1="${pad.l}" y1="${yy}" x2="${w-pad.r}" y2="${yy}" stroke="rgba(30,30,45,.07)"/>`;lab+=`<text x="${pad.l-6}" y="${yy+3}" font-size="9" fill="#a6a6b2" text-anchor="end">${val.toFixed(1)}</text>`;}
-  let xl=data.map((d,i)=>`<text x="${x(i)}" y="${h-6}" font-size="9" fill="#a6a6b2" text-anchor="middle">${d.m}</text>`).join('');
-  let dots=data.map((d,i)=>`<circle cx="${x(i)}" cy="${y(d.v)}" r="3.4" fill="#fff" stroke="#f4685c" stroke-width="2.4"/>`).join('');
-  el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block"><defs><linearGradient id="ga${el.id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4685c" stop-opacity=".28"/><stop offset="1" stop-color="#f4685c" stop-opacity="0"/></linearGradient></defs>${grid}${lab}<path d="${band}" fill="#15a088" opacity=".16"/><path d="${area}" fill="url(#ga${el.id})"/><path d="${line}" fill="none" stroke="#f4685c" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>${dots}${xl}</svg>`;
+  let grid='',lab='';for(let k=0;k<=4;k++){const val=lo+(hi-lo)*k/4,yy=y(val);grid+=`<line x1="${pad.l}" y1="${yy}" x2="${w-pad.r}" y2="${yy}" stroke="rgba(31,42,42,.07)"/>`;lab+=`<text x="${pad.l-6}" y="${yy+3}" font-size="9" fill="#7A8A8A" text-anchor="end">${val.toFixed(1)}</text>`;}
+  let xl=data.map((d,i)=>`<text x="${x(i)}" y="${h-6}" font-size="9" fill="#7A8A8A" text-anchor="middle">${d.m}</text>`).join('');
+  let dots=data.map((d,i)=>`<circle cx="${x(i)}" cy="${y(d.v)}" r="3.4" fill="#fff" stroke="#35B89F" stroke-width="2.6"/>`).join('');
+  el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block"><defs><linearGradient id="ga${el.id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#35B89F" stop-opacity=".28"/><stop offset="1" stop-color="#35B89F" stop-opacity="0"/></linearGradient></defs>${grid}${lab}<path d="${band}" fill="#41DF82" opacity=".15"/><path d="${area}" fill="url(#ga${el.id})"/><path d="${line}" fill="none" stroke="#35B89F" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>${dots}${xl}</svg>`;
 }
 function drawGrowth(){const p=pets[cur];lineChart($('#growthChart'),p.weights,p.ideal,340,190);}
 
-renderWeek();renderData();renderWeekChart();renderHome();renderHealth();renderCircles('all');renderCal();
+/* init */
+renderAll();renderCircles('all');renderCal();
 </script>
 </body>
 </html>
