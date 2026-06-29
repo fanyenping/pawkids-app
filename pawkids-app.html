@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PAWkids — 毛孩飼主交流與健康照護 App</title>
+<title>PetCareYou 寵護你 — 毛孩飼主交流與健康照護 App</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --health-green:#35B89F;--success-green:#41DF82;--mint-bg:#DDF7F0;
-  --pet-pink:#FF7FEC;--soft-pink:#FFE1F8;
-  --food-orange:#FF7A1A;--soft-orange:#FFE3D4;
-  --care-purple:#694AFF;--soft-purple:#E8E3FF;
-  --water-blue:#55C7FF;--soft-blue:#E2F6FF;
-  --alert-red:#FF4D4F;--warning-yellow:#FFD166;
-  --dark:#141414;--white:#fff;--cream:#FFF8EA;
-  --text:#1F2A2A;--muted:#7A8A8A;
-  --line:#EEF1F0;
+  --health-green:#7AAE63;--success-green:#9AC97F;--mint-bg:#E6F1DC;
+  --pet-pink:#FF9D8F;--soft-pink:#FFE2DC;
+  --food-orange:#F2A23C;--soft-orange:#FFE9CC;
+  --care-purple:#5B9BD5;--soft-purple:#DBEAF7;
+  --water-blue:#5B9BD5;--soft-blue:#DBEAF7;
+  --alert-red:#FF6B6B;--warning-yellow:#FFD166;
+  --dark:#36403A;--white:#fff;--cream:#FFFDF7;
+  --text:#41463F;--muted:#8C958A;
+  --line:#EEF0EC;
   --shadow:0 12px 30px -14px rgba(31,42,42,.18);--shadow-sm:0 6px 16px -10px rgba(31,42,42,.18);
   --r-chip:14px;--r-btn:22px;--r-card:28px;
   font-family:"Nunito",system-ui,sans-serif;
@@ -26,7 +26,7 @@
 html,body{height:100%}
 body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
   display:flex;flex-direction:column;align-items:center;gap:14px;padding:30px 16px 50px;
-  background:linear-gradient(160deg,#e8dcc6,#dbe4c2 50%,#ecd6cf)}
+  background:linear-gradient(160deg,#dbe9f5,#e6f1dc 50%,#fff3e2)}
 .caption{text-align:center;color:var(--muted)}
 .caption .logo{font-size:30px;font-weight:900;color:var(--text)}
 .caption .logo b{color:var(--health-green)}
@@ -56,7 +56,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 .tabbar button{border:none;background:transparent;font-family:inherit;cursor:pointer;flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;color:#7c8784;font-size:9.5px;font-weight:800;transition:.2s;padding:0}
 .tabbar button svg{width:22px;height:22px;stroke:#7c8784;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
 .tabbar button.active{color:var(--white)}
-.tabbar button.active svg{stroke:var(--success-green)}
+.tabbar button.active svg{stroke:var(--health-green)}
 .tabbar .navgap{flex:1.2}
 .addbtn{position:absolute;left:50%;top:-22px;transform:translateX(-50%);width:60px;height:60px;border-radius:50%;border:4px solid var(--cream);cursor:pointer;z-index:42;
   background:linear-gradient(140deg,var(--success-green),var(--health-green));color:#fff;font-size:30px;display:grid;place-items:center;
@@ -95,7 +95,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 
 /* hero reminder (home focus) */
 .hero{border-radius:var(--r-card);padding:22px;margin-bottom:16px;color:#063b33;position:relative;overflow:hidden;
-  background:linear-gradient(140deg,#5fe0c4,var(--health-green))}
+  background:linear-gradient(140deg,#a7d492,var(--health-green))}
 .hero .tagrow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
 .hero .pill{background:rgba(255,255,255,.85);color:#0a5247;font-size:11px;font-weight:900;padding:5px 12px;border-radius:999px}
 .hero h2{font-size:24px;font-weight:900;line-height:1.2;color:#fff}
@@ -153,7 +153,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 .prow b{font-size:15px;font-weight:800}
 .prow small{font-size:12px;color:var(--muted);font-weight:600;display:block}
 .prow .upload{flex-shrink:0;border:none;background:var(--mint-bg);color:var(--health-green);font-family:inherit;font-weight:800;font-size:12px;padding:9px 14px;border-radius:var(--r-chip);cursor:pointer}
-.ownercard{background:linear-gradient(140deg,var(--soft-purple),#d8d0ff);border-radius:var(--r-card);padding:22px;margin-bottom:16px;display:flex;align-items:center;gap:15px}
+.ownercard{background:linear-gradient(140deg,var(--mint-bg),#cfe6f5);border-radius:var(--r-card);padding:22px;margin-bottom:16px;display:flex;align-items:center;gap:15px}
 .ownercard .oav{width:64px;height:64px;border-radius:22px;overflow:hidden;background:#fff;flex-shrink:0;box-shadow:var(--shadow-sm)}
 .ownercard .oav img{width:100%;height:100%;object-fit:cover;display:block}
 .ownercard h2{font-size:20px;font-weight:900;color:#2b2150}
@@ -251,7 +251,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 </style>
 </head>
 <body>
-<div class="caption"><div class="logo">🐾 <b>PAWkids</b></div><p>毛孩飼主交流與健康照護 App · 互動原型</p></div>
+<div class="caption"><div class="logo">🐾 <b style="color:#5B9BD5">Pet</b><b style="color:#F2A23C">Care</b><b style="color:#7AAE63">You</b> <span style="color:var(--text);font-weight:800">寵護你</span></div><p>Puppy · Cat · You ｜ 毛孩飼主交流與健康照護 App</p></div>
 
 <div class="phone">
   <div class="screen">
@@ -488,7 +488,7 @@ function renderHome(){
 /* ===== HEALTH ===== */
 function ringSVG(score){
   const r=70,c=2*Math.PI*r,off=c*(1-score/100);
-  return `<svg viewBox="0 0 170 170" width="170" height="170"><circle cx="85" cy="85" r="${r}" fill="none" stroke="#eef1f0" stroke-width="14"/><circle cx="85" cy="85" r="${r}" fill="none" stroke="url(#sg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 85 85)"/><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#41DF82"/><stop offset="1" stop-color="#35B89F"/></linearGradient></defs></svg><div class="big"><b>${score}</b><small>健康分數</small></div>`;
+  return `<svg viewBox="0 0 170 170" width="170" height="170"><circle cx="85" cy="85" r="${r}" fill="none" stroke="#eef1f0" stroke-width="14"/><circle cx="85" cy="85" r="${r}" fill="none" stroke="url(#sg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 85 85)"/><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AC97F"/><stop offset="1" stop-color="#7AAE63"/></linearGradient></defs></svg><div class="big"><b>${score}</b><small>健康分數</small></div>`;
 }
 function renderHealth(){
   const p=pets[cur];
