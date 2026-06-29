@@ -270,9 +270,9 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 
         <div class="hero">
           <div class="tagrow"><span class="pill">⏰ 健康提醒</span></div>
-          <h2>豆豆 狂犬病疫苗<br>還有 5 天到期</h2>
+          <h2>膩膩 狂犬病疫苗<br>還有 5 天到期</h2>
           <p>建議本週預約中山動物醫院接種</p>
-          <button class="cta" onclick="go('vet')">立即預約 →</button>
+          <button class="cta" onclick="go('records')">查看提醒 →</button>
           <div class="emoji">💉</div>
         </div>
 
@@ -290,7 +290,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
       <!-- HEALTH -->
       <section class="view" id="v-health">
         <div class="pagetitle">健康狀態</div>
-        <div class="pagesub" id="healthSub">豆豆 · 柴犬 · 4 歲</div>
+        <div class="pagesub" id="healthSub">膩膩 · 柴犬 · 4 歲</div>
         <div class="petrow" id="healthPets"></div>
 
         <div class="scorecard">
@@ -330,23 +330,35 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
         <div class="rpane" id="r-log"><div class="tl" id="logTl"></div></div>
       </section>
 
-      <!-- VET -->
-      <section class="view" id="v-vet">
-        <div class="pagetitle">獸醫</div>
-        <div class="pagesub">就診紀錄與預約</div>
-        <div class="card" style="background:linear-gradient(140deg,var(--soft-pink),#ffd0f4);box-shadow:none">
-          <div style="display:flex;align-items:center;gap:14px">
-            <div style="font-size:38px">🏥</div>
-            <div style="flex:1"><b style="font-size:16px;font-weight:900;color:#7a2168">預約看診</b><div style="font-size:12.5px;color:#9c4789;font-weight:700;margin-top:2px">選擇合作院所，線上掛號</div></div>
-          </div>
-          <button class="btn block" style="background:var(--pet-pink);color:#fff;margin-top:14px" onclick="toast('開啟預約 🐾')">＋ 立即預約</button>
+      <!-- HEALTHY (健康議題) -->
+      <section class="view" id="v-healthy">
+        <div class="pagetitle">健康議題</div>
+        <div class="pagesub">飲食・用藥・保健品・疾病照護</div>
+        <div class="seg" id="hcat">
+          <button class="active">全部</button><button>🍗 飲食</button><button>💊 用藥</button><button>🌿 保健品</button><button>🩺 疾病</button>
         </div>
-        <div class="sec-h"><h3>就診紀錄</h3><span class="more" id="vetSub"></span></div>
-        <div class="tl" id="vetTl2"></div>
-        <div class="sec-h"><h3>合作院所</h3></div>
-        <div class="clinic"><div class="ci">🏥</div><div><b>中山動物醫院</b><small>0.8 km · 內科 / 外科 / 牙科</small></div><div class="star">★ 4.9</div></div>
-        <div class="clinic"><div class="ci">🐾</div><div><b>喵喵貓專科醫院</b><small>1.5 km · 貓專科</small></div><div class="star">★ 4.8</div></div>
-        <div class="clinic"><div class="ci">🦴</div><div><b>大同動物醫院</b><small>2.1 km · 骨科 / 影像</small></div><div class="star">★ 4.7</div></div>
+        <div class="card">
+          <h3 style="font-weight:900;margin-bottom:10px">🥦 食物安全速查</h3>
+          <div class="metrics">
+            <div class="metric m-weight"><div class="ic">🍫</div><div class="num" style="font-size:14px">巧克力</div><div class="lbl" style="color:var(--alert-red)">⛔ 中毒</div></div>
+            <div class="metric m-water"><div class="ic">🍗</div><div class="num" style="font-size:14px">雞肉</div><div class="lbl" style="color:var(--health-green)">✓ 去骨</div></div>
+            <div class="metric m-act"><div class="ic">🧅</div><div class="num" style="font-size:14px">洋蔥</div><div class="lbl" style="color:var(--alert-red)">⛔ 溶血</div></div>
+          </div>
+        </div>
+        <div class="sec-h"><h3>🍗 飲食</h3></div>
+        <div class="rem"><div class="dot d-orange">🍖</div><div><b>各階段飲食換算指南</b><small>幼犬到成犬的熱量與營養比例</small></div></div>
+        <div class="rem"><div class="dot d-orange">🍲</div><div><b>寵物鮮食食譜</b><small>自製鮮食與營養均衡</small></div></div>
+        <div class="rem"><div class="dot d-pink">⚖️</div><div><b>體重管理飲食</b><small>過胖／過瘦的飲食調整</small></div></div>
+        <div class="sec-h"><h3>💊 用藥</h3></div>
+        <div class="rem"><div class="dot d-purple">🪱</div><div><b>心絲蟲與驅蟲用藥指南</b><small>口服／滴劑時程與注意事項</small></div></div>
+        <div class="rem"><div class="dot d-purple">💊</div><div><b>正確餵藥技巧</b><small>拌食、投藥與劑量計算</small></div></div>
+        <div class="sec-h"><h3>🌿 健康補給品</h3></div>
+        <div class="rem"><div class="dot d-green">🦴</div><div><b>關節保健（葡萄糖胺）</b><small>大型犬／高齡犬關節保養</small></div></div>
+        <div class="rem"><div class="dot d-green">✨</div><div><b>皮毛保健（Omega-3）</b><small>改善皮膚與毛髮光澤</small></div></div>
+        <div class="rem"><div class="dot d-green">🦠</div><div><b>腸胃益生菌</b><small>調整腸道菌相、改善軟便</small></div></div>
+        <div class="sec-h"><h3>🩺 疾病照護</h3></div>
+        <div class="rem"><div class="dot d-blue">🦠</div><div><b>常見皮膚病與居家照護</b><small>過敏、黴菌、寄生蟲</small></div></div>
+        <div class="rem"><div class="dot d-blue">🦷</div><div><b>口腔與牙齒保健</b><small>刷牙、潔牙與牙結石預防</small></div></div>
       </section>
 
       <!-- PROFILE -->
@@ -355,7 +367,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
         <div class="pagesub">帳號與毛孩管理</div>
         <div class="ownercard">
           <div class="oav"><img src="https://i.pravatar.cc/120?img=47" onerror="this.parentNode.textContent='🙂'"></div>
-          <div><h2>Ariel</h2><small>arielypf@gmail.com · 3 隻毛孩</small></div>
+          <div><h2>Ariel</h2><small>arielypf@gmail.com · 2 隻毛孩</small></div>
         </div>
         <div class="sec-h"><h3>我的毛孩</h3><span class="more" onclick="addPetPhoto(-1)">＋ 新增</span></div>
         <div id="profilePets"></div>
@@ -405,7 +417,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
         <button class="active" data-view="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg>Home</button>
         <button data-view="health"><svg viewBox="0 0 24 24"><path d="M12 20C6 16 3 12.5 3 9a4 4 0 0 1 7-2.6A4 4 0 0 1 21 9c0 3.5-3 7-9 11z"/></svg>Health</button>
         <span class="navgap"></span>
-        <button data-view="vet"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>Vet</button>
+        <button data-view="healthy"><svg viewBox="0 0 24 24"><path d="M12 21C7.5 17.5 4.5 14 4.5 10.3 4.5 8 6.3 6.2 8.5 6.2c1.4 0 2.7.7 3.5 1.9.8-1.2 2.1-1.9 3.5-1.9 2.2 0 4 1.8 4 4.1 0 .6-.1 1.2-.3 1.7"/><path d="M14.5 17h4M16.5 15v4"/></svg>Healthy</button>
         <button data-view="community"><svg viewBox="0 0 24 24"><path d="M4 6h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3a2 2 0 0 1-1-2V8a2 2 0 0 1 2-2z"/><path d="M8.5 9.5h6M8.5 12h4"/></svg>圈圈</button>
       </nav>
       <button class="addbtn" onclick="openSheet()">＋</button>
@@ -440,35 +452,24 @@ const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const todayStr=()=>'2026-06-29';
 
 const pets=[
- {id:'doudou',name:'豆豆',emoji:'🐶',photo:'https://placedog.net/240/240?id=170',
-  breed:'柴犬',sex:'公·已結紮',birth:'2022/03/18',age:'4 歲',blood:'DEA 1.1+',next:'7/3 疫苗',
+ {id:'niini',name:'膩膩',emoji:'🐶',photo:'niini.jpg',
+  breed:'西班牙水犬',sex:'母·已絕育',birth:'2024/01/20',age:'2 歲',blood:'DEA 1.1+',next:'7/3 疫苗',
   score:92,weight:'8.4',water:320,waterGoal:400,activity:45,
   weights:[{m:'1月',v:7.6},{m:'2月',v:7.9},{m:'3月',v:8.1},{m:'4月',v:8.2},{m:'5月',v:8.3},{m:'6月',v:8.4}],
   ideal:[{lo:7.2,hi:8.6},{lo:7.3,hi:8.7},{lo:7.4,hi:8.8},{lo:7.5,hi:8.9},{lo:7.6,hi:9.0},{lo:7.6,hi:9.0}],
-  hint:'柴犬同齡理想 7.6–9.0kg，落在健康範圍。',
+  hint:'目前體重落在理想範圍，體態維持良好。',
   meas:[{d:'2026/06/20',t:'體重 8.4 kg',s:'+0.1kg',ic:'⚖️',dot:'d-pink'},{d:'2026/06/20',t:'身高 38 cm',s:'穩定',ic:'📏',dot:'d-orange'},{d:'理想體態',t:'BCS 5/9',s:'✓',ic:'🍖',dot:'d-green'}],
   vet:[{d:'2026/05/12 · 中山動物醫院',h:'🩺 皮膚搔癢門診',p:'輕度過敏性皮膚炎，抗組織胺 7 天，建議換低敏飼料。複診已痊癒。',c:''},{d:'2026/03/18 · 中山動物醫院',h:'❤️ 年度健康檢查',p:'血檢、心臟超音波、X 光正常。牙結石輕微，建議半年內洗牙。',c:'b'},{d:'2025/11/02 · 幸福動物醫院',h:'🦴 跛行檢查',p:'右後腳輕微拉傷，休息與消炎藥 5 天後恢復。',c:'p'}],
   vax:[{n:'🦠 八合一',last:'2025/07/10',next:'2026/07/10',st:'<span class="due">⏰ 12天</span>'},{n:'🐕 狂犬病',last:'2025/07/03',next:'2026/07/03',st:'<span class="due">⏰ 5天</span>'},{n:'🤧 犬舍咳',last:'2026/01/15',next:'2027/01/15',st:'<span class="done">✓ 完成</span>'}],
   meds:[{n:'抗組織胺',d:'過敏性皮膚炎',dose:'每日1錠·飯後',w:100,f1:'7/7 天',f2:'<span class="done">已完成 ✓</span>',ic:'💊'},{n:'心絲蟲預防',d:'每月口服',dose:'每月5日·一次',w:60,f1:'下次 7/05',f2:'<span class="due">3天後</span>',ic:'🪱'},{n:'關節保健',d:'葡萄糖胺',dose:'每日1錠·長期',w:45,f1:'長期保養',f2:'進行中',ic:'🦴'}],
   logs:[{d:'2026/06/28',h:'😺 精神很好',p:'食慾正常，散步 40 分鐘活力充沛。便便成形良好。',c:''},{d:'2026/06/25',h:'🍽️ 換新飼料第一天',p:'低敏羊肉飼料接受度高，皮膚搔癢明顯改善。',c:'b'}]},
- {id:'naicha',name:'奶茶',emoji:'🐱',photo:'https://placekitten.com/240/240',
-  breed:'米克斯貓',sex:'母·已絕育',birth:'2024/05/02',age:'2 歲',blood:'A 型',next:'7/5 用藥',
-  score:88,weight:'4.0',water:180,waterGoal:220,activity:30,
-  weights:[{m:'1月',v:3.5},{m:'2月',v:3.6},{m:'3月',v:3.7},{m:'4月',v:3.8},{m:'5月',v:3.9},{m:'6月',v:4.0}],
-  ideal:[{lo:3.3,hi:4.4},{lo:3.4,hi:4.5},{lo:3.4,hi:4.5},{lo:3.5,hi:4.6},{lo:3.5,hi:4.6},{lo:3.5,hi:4.6}],
-  hint:'成年母貓理想 3.5–4.6kg，體態維持良好。',
-  meas:[{d:'2026/06/22',t:'體重 4.0 kg',s:'穩定',ic:'⚖️',dot:'d-pink'},{d:'2026/06/22',t:'BCS 5/9',s:'✓',ic:'🍖',dot:'d-green'},{d:'2026/06/10',t:'牙齒檢查',s:'正常',ic:'🦷',dot:'d-blue'}],
-  vet:[{d:'2026/04/10 · 喵喵貓專科',h:'✂️ 絕育手術',p:'手術順利，術後恢復良好。頭套配戴 7 天，傷口無感染。',c:''},{d:'2026/02/14 · 喵喵貓專科',h:'❤️ 年度健檢',p:'腎指數正常，建議定期補水與濕食。',c:'b'}],
-  vax:[{n:'🦠 三合一',last:'2026/05/02',next:'2027/05/02',st:'<span class="done">✓ 完成</span>'},{n:'🐈 狂犬病',last:'2026/05/02',next:'2027/05/02',st:'<span class="done">✓ 完成</span>'},{n:'🩸 貓白血病',last:'2026/05/02',next:'2027/05/02',st:'<span class="done">✓ 完成</span>'}],
-  meds:[{n:'心絲蟲預防(貓)',d:'每月滴劑',dose:'每月5日·後頸',w:60,f1:'下次 7/05',f2:'<span class="due">3天後</span>',ic:'🪱'},{n:'化毛膏',d:'毛球控制',dose:'每週2次',w:50,f1:'長期',f2:'進行中',ic:'🧴'}],
-  logs:[{d:'2026/06/27',h:'😻 活力滿滿',p:'追逗貓棒 20 分鐘，食慾佳，喝水量增加。',c:''},{d:'2026/06/21',h:'🧶 換季掉毛',p:'梳毛清出不少廢毛，已加強化毛膏。',c:'p'}]},
- {id:'mocha',name:'摩卡',emoji:'🦮',photo:'https://placedog.net/240/241?id=58',
-  breed:'黃金獵犬',sex:'公·未結紮',birth:'2020/08/10',age:'6 歲',blood:'DEA 1.1-',next:'今日餵藥',
-  score:79,weight:'30.6',water:600,waterGoal:700,activity:25,
-  weights:[{m:'1月',v:29.2},{m:'2月',v:29.6},{m:'3月',v:30.0},{m:'4月',v:30.2},{m:'5月',v:30.5},{m:'6月',v:30.6}],
-  ideal:[{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32},{lo:27,hi:32}],
-  hint:'黃金獵犬理想 27–32kg，略偏上限，建議控制點心。',
-  meas:[{d:'2026/06/18',t:'體重 30.6 kg',s:'+0.1kg',ic:'⚖️',dot:'d-pink'},{d:'2026/06/18',t:'身高 58 cm',s:'穩定',ic:'📏',dot:'d-orange'},{d:'略偏胖',t:'BCS 6/9',s:'⚠',ic:'🍖',dot:'d-orange'}],
+ {id:'chi',name:'Chi',emoji:'🐶',photo:'chi.jpg',
+  breed:'西班牙水犬',sex:'公·未結紮',birth:'2025/02/10',age:'1 歲',blood:'DEA 1.1-',next:'今日餵藥',
+  score:86,weight:'14.2',water:480,waterGoal:550,activity:55,
+  weights:[{m:'1月',v:13.4},{m:'2月',v:13.6},{m:'3月',v:13.8},{m:'4月',v:14.0},{m:'5月',v:14.1},{m:'6月',v:14.2}],
+  ideal:[{lo:13,hi:16},{lo:13,hi:16},{lo:13,hi:16},{lo:13,hi:16},{lo:13,hi:16},{lo:13,hi:16}],
+  hint:'西班牙水犬理想 13–16kg，落在健康範圍。',
+  meas:[{d:'2026/06/18',t:'體重 14.2 kg',s:'+0.1kg',ic:'⚖️',dot:'d-pink'},{d:'2026/06/18',t:'身高 44 cm',s:'穩定',ic:'📏',dot:'d-orange'},{d:'理想體態',t:'BCS 5/9',s:'✓',ic:'🍖',dot:'d-green'}],
   vet:[{d:'2026/05/20 · 大同動物醫院',h:'🦴 髖關節檢查',p:'大型犬常見輕度髖關節鬆弛，建議體重控制與關節保養。',c:''},{d:'2026/03/05 · 大同動物醫院',h:'❤️ 年度健檢',p:'血檢正常，耳道輕微發炎，開立耳藥。',c:'b'}],
   vax:[{n:'🦠 八合一',last:'2025/09/01',next:'2026/09/01',st:'<span class="done">✓ 完成</span>'},{n:'🐕 狂犬病',last:'2025/09/01',next:'2026/09/01',st:'<span class="done">✓ 完成</span>'},{n:'💧 鉤端螺旋體',last:'2026/03/05',next:'2027/03/05',st:'<span class="done">✓ 完成</span>'}],
   meds:[{n:'關節保健',d:'葡萄糖胺+軟骨素',dose:'每日2錠·長期',w:55,f1:'長期保養',f2:'進行中',ic:'🦴'},{n:'心絲蟲預防',d:'每月口服',dose:'每月5日·一次',w:60,f1:'下次 7/05',f2:'<span class="due">3天後</span>',ic:'🪱'},{n:'耳道清潔藥',d:'外耳炎',dose:'每日1次',w:70,f1:'複查 7/25',f2:'進行中',ic:'👂'}],
@@ -480,7 +481,7 @@ function imgTag(p){return `<img src="${p.photo}" onerror="this.parentNode.textCo
 /* ===== HOME ===== */
 function renderHome(){
   $('#homePets').innerHTML=pets.map((p,i)=>`<div class="petcard ${i===cur?'sel':''}" onclick="selectPet(${i});go('health')"><div class="ph">${imgTag(p)}</div><b>${p.name}</b><small>${p.next}</small></div>`).join('')+`<div class="petcard add" onclick="addPetPhoto(-1)"><div class="plus">＋</div><small>新增</small></div>`;
-  const today=[{ic:'🦴',dot:'d-orange',t:'關節保健餵藥',s:'摩卡 · 每日',w:'今天'},{ic:'🧴',dot:'d-purple',t:'化毛膏',s:'奶茶 · 每週',w:'今天'},{ic:'💧',dot:'d-blue',t:'補水提醒',s:'全部毛孩',w:'今天'}];
+  const today=[{ic:'🦴',dot:'d-orange',t:'關節保健餵藥',s:'Chi · 每日',w:'今天'},{ic:'🧴',dot:'d-purple',t:'化毛膏',s:'膩膩 · 每週',w:'今天'},{ic:'💧',dot:'d-blue',t:'補水提醒',s:'全部毛孩',w:'今天'}];
   $('#todayList').innerHTML=today.map(t=>`<div class="rem"><div class="dot ${t.dot}">${t.ic}</div><div><b>${t.t}</b><small>${t.s}</small></div><div class="when" style="color:var(--health-green)">${t.w}</div></div>`).join('');
 }
 
@@ -541,7 +542,7 @@ $('#photoInput').addEventListener('change',function(e){
 function addPetPhoto(i){if(i<0){toast('新增毛孩：請先上傳照片 🐾');photoTarget=0;}else{photoTarget=i;}$('#photoInput').click();}
 
 function selectPet(i){cur=i;renderAll();}
-function renderAll(){renderHome();renderHealth();renderRecords();renderVet();renderProfile();}
+function renderAll(){renderHome();renderHealth();renderRecords();renderProfile();}
 
 /* nav */
 function go(v){
@@ -552,6 +553,7 @@ function go(v){
 }
 $$('.tabbar [data-view],#recordsTabHidden').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
 $$('#rseg button').forEach(b=>b.addEventListener('click',()=>{$$('#rseg button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.rpane').forEach(p=>p.classList.toggle('active',p.id==='r-'+b.dataset.r));}));
+$$('#hcat button').forEach(b=>b.addEventListener('click',()=>{$$('#hcat button').forEach(x=>x.classList.remove('active'));b.classList.add('active');}));
 function selRseg(r){$$('#rseg button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));$$('.rpane').forEach(p=>p.classList.toggle('active',p.id==='r-'+r));}
 
 let tT;function toast(m){const t=$('#toast');t.textContent=m;t.style.transform='translate(-50%,0)';clearTimeout(tT);tT=setTimeout(()=>t.style.transform='translate(-50%,150px)',1900);}
@@ -590,14 +592,14 @@ function backToCircles(){$('#circleDetail').style.display='none';$('#circleList'
 /* calendar */
 let calY=2026,calM=6,selDay='2026-07-03';
 const events=[
- {d:'2026-06-29',type:'care',pet:'摩卡',title:'關節保健餵藥'},
- {d:'2026-06-30',type:'med',pet:'奶茶',title:'化毛膏'},
- {d:'2026-07-03',type:'vax',pet:'豆豆',title:'狂犬病疫苗到期'},
- {d:'2026-07-05',type:'med',pet:'奶茶 / 摩卡',title:'心絲蟲預防藥'},
- {d:'2026-07-10',type:'vax',pet:'豆豆',title:'八合一疫苗到期'},
- {d:'2026-07-13',type:'vet',pet:'豆豆',title:'年度健康檢查'},
+ {d:'2026-06-29',type:'care',pet:'Chi',title:'關節保健餵藥'},
+ {d:'2026-06-30',type:'med',pet:'膩膩',title:'化毛膏'},
+ {d:'2026-07-03',type:'vax',pet:'膩膩',title:'狂犬病疫苗到期'},
+ {d:'2026-07-05',type:'med',pet:'膩膩 / Chi',title:'心絲蟲預防藥'},
+ {d:'2026-07-10',type:'vax',pet:'膩膩',title:'八合一疫苗到期'},
+ {d:'2026-07-13',type:'vet',pet:'膩膩',title:'年度健康檢查'},
  {d:'2026-07-18',type:'care',pet:'全部毛孩',title:'洗澡日'},
- {d:'2026-07-25',type:'med',pet:'摩卡',title:'耳藥複查'}
+ {d:'2026-07-25',type:'med',pet:'Chi',title:'耳藥複查'}
 ];
 const evMap={vax:['💉','疫苗','d-green'],med:['💊','用藥','d-purple'],vet:['🩺','就醫','d-pink'],care:['🛁','照護','d-orange']};
 const pad2=n=>String(n).padStart(2,'0');
@@ -631,7 +633,7 @@ const monthLabel=s=>((s?new Date(s):new Date(2026,5,29)).getMonth()+1)+'月';
 function saveRecord(){
   const p=pets[cur],val=($('#f_val')||{}).value,note=($('#f_note')||{}).value,date=($('#f_date')||{}).value;
   if(curType==='growth'){const w=parseFloat(val);if(!w){toast('請輸入體重 🐾');return;}p.weights.push({m:monthLabel(date),v:w});if(p.weights.length>8)p.weights.shift();p.weight=String(w);p.meas.unshift({d:fmtDate(date),t:'體重 '+w+' kg',s:'更新',ic:'⚖️',dot:'d-pink'});renderHealth();renderRecords();go('records');selRseg('growth');}
-  else if(curType==='vet'){if(!val){toast('請輸入主題');return;}p.vet.unshift({d:fmtDate(date),h:'🩺 '+val,p:note||'（無補充）',c:''});renderRecords();renderVet();go('records');selRseg('vet');}
+  else if(curType==='vet'){if(!val){toast('請輸入主題');return;}p.vet.unshift({d:fmtDate(date),h:'🩺 '+val,p:note||'（無補充）',c:''});renderRecords();go('records');selRseg('vet');}
   else if(curType==='vax'){if(!val){toast('請輸入疫苗名稱');return;}p.vax.unshift({n:'💉 '+val,last:fmtDate(date),next:fmtDate(note),st:'<span class="done">✓ 新登錄</span>'});renderRecords();go('records');selRseg('vax');}
   else if(curType==='med'){if(!val){toast('請輸入藥品名稱');return;}const c=($('#f_date2')||{}).value;p.meds.unshift({n:val,d:c||'療程',dose:note||'依醫囑',w:10,f1:c||'進行中',f2:'進行中',ic:'💊'});renderRecords();go('records');selRseg('med');}
   else if(curType==='log'){if(!val){toast('請輸入標題');return;}p.logs.unshift({d:fmtDate(date),h:'📝 '+val,p:note||'',c:''});renderRecords();go('records');selRseg('log');}
