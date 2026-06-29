@@ -144,6 +144,17 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 .m-weight{background:var(--soft-pink);color:#9c2f86}
 .m-water{background:var(--soft-blue);color:#0b6e9c}
 .m-act{background:var(--soft-orange);color:#a8500a}
+.petbig{aspect-ratio:4/5;display:flex;flex-direction:column;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:16px;background:#fff}
+.petbig .pic{flex:4;position:relative;cursor:pointer;overflow:hidden;background:var(--mint-bg)}
+.petbig .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.petbig .picfb{position:absolute;inset:0;display:grid;place-items:center;font-size:84px}
+.petbig .cam{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:19px;box-shadow:var(--shadow-sm)}
+.petbig .switch{position:absolute;top:14px;left:14px;display:flex;gap:6px}
+.petbig .switch i{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.9);overflow:hidden;background:#fff;cursor:pointer;opacity:.75}
+.petbig .switch i.on{opacity:1;border-color:var(--health-green);box-shadow:0 0 0 2px var(--health-green)}
+.petbig .switch i img{width:100%;height:100%;object-fit:cover}
+.petbig .namebar{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:24px;font-weight:900;color:var(--text);cursor:pointer}
+.petbig .namebar .pen{font-size:15px;opacity:.5}
 
 /* profile photo upload */
 .prow{display:flex;align-items:center;gap:13px;padding:13px;border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:12px}
@@ -291,7 +302,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
       <section class="view" id="v-health">
         <div class="pagetitle">健康狀態</div>
         <div class="pagesub" id="healthSub">膩膩 · 柴犬 · 4 歲</div>
-        <div class="petrow" id="healthPets"></div>
+        <div id="petBig"></div>
 
         <div class="scorecard">
           <div class="ring" id="scoreRing"></div>
@@ -493,7 +504,7 @@ function ringSVG(score){
 function renderHealth(){
   const p=pets[cur];
   $('#healthSub').textContent=`${p.name} · ${p.breed} · ${p.age}`;
-  $('#healthPets').innerHTML=pets.map((x,i)=>`<div class="petcard ${i===cur?'sel':''}" onclick="selectPet(${i})"><div class="ph">${imgTag(x)}</div><b>${x.name}</b><small>${x.breed}</small></div>`).join('');
+  $('#petBig').innerHTML=`<div class="petbig"><div class="pic" onclick="addPetPhoto(${cur})"><div class="picfb">${p.emoji}</div><img src="${p.photo}" onerror="this.remove()"><div class="switch">${pets.map((x,i)=>`<i class="${i===cur?'on':''}" onclick="event.stopPropagation();selectPet(${i})"><img src="${x.photo}" onerror="this.parentNode.textContent='${x.emoji}'"></i>`).join('')}</div><div class="cam">📷</div></div><div class="namebar" onclick="renamePet(${cur})">${p.name}<span class="pen">✎</span></div></div>`;
   $('#scoreRing').innerHTML=ringSVG(p.score);
   $('#scoreLabel').innerHTML=p.score>=90?'狀態極佳 <span>很棒！</span>':p.score>=80?'狀態良好 <span>保持住</span>':'需多留意 <span>注意照護</span>';
   $('#metrics').innerHTML=`
@@ -525,7 +536,7 @@ function renderVet(){
 
 /* ===== PROFILE ===== */
 function renderProfile(){
-  $('#profilePets').innerHTML=pets.map((p,i)=>`<div class="prow"><div class="ph">${imgTag(p)}</div><div class="pi"><b>${p.name}</b><small>${p.breed} · ${p.sex} · ${p.age}</small></div><button class="upload" onclick="addPetPhoto(${i})">📷 上傳照片</button></div>`).join('');
+  $('#profilePets').innerHTML=pets.map((p,i)=>`<div class="prow"><div class="ph" onclick="addPetPhoto(${i})" style="cursor:pointer">${imgTag(p)}</div><div class="pi"><b onclick="renamePet(${i})" style="cursor:pointer">${p.name} <span style="font-size:12px;opacity:.5">✎</span></b><small>${p.breed} · ${p.sex} · ${p.age}</small></div><button class="upload" onclick="addPetPhoto(${i})">📷 上傳照片</button></div>`).join('');
 }
 
 /* photo upload */
@@ -542,6 +553,7 @@ $('#photoInput').addEventListener('change',function(e){
 function addPetPhoto(i){if(i<0){toast('新增毛孩：請先上傳照片 🐾');photoTarget=0;}else{photoTarget=i;}$('#photoInput').click();}
 
 function selectPet(i){cur=i;renderAll();}
+function renamePet(i){const n=prompt('輸入毛孩名稱',pets[i].name);if(n&&n.trim()){pets[i].name=n.trim();renderAll();toast('名稱已更新 ✓');}}
 function renderAll(){renderHome();renderHealth();renderRecords();renderProfile();}
 
 /* nav */
