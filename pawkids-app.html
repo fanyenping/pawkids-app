@@ -26,7 +26,7 @@
 html,body{height:100%}
 body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
   display:flex;flex-direction:column;align-items:center;gap:14px;padding:30px 16px 50px;
-  background:linear-gradient(165deg,#fff4f0,#e9f8f3 55%,#fff8ea)}
+  background:linear-gradient(160deg,#e8dcc6,#dbe4c2 50%,#ecd6cf)}
 .caption{text-align:center;color:var(--muted)}
 .caption .logo{font-size:30px;font-weight:900;color:var(--text)}
 .caption .logo b{color:var(--health-green)}
@@ -35,7 +35,15 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
 /* phone */
 .phone{position:relative;width:393px;max-width:100%;height:852px;border-radius:54px;padding:12px;
   background:#0e0e0e;box-shadow:0 44px 90px -34px rgba(20,20,20,.55),0 0 0 1px rgba(255,255,255,.06) inset;flex-shrink:0}
-.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:var(--cream)}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;
+  background:
+   radial-gradient(120% 75% at 72% -2%, #aacf64 0%, rgba(170,207,100,0) 52%),
+   radial-gradient(85% 55% at 8% 6%, #f5eecb 0%, rgba(245,238,203,0) 46%),
+   radial-gradient(68% 52% at 56% 28%, #2f7d7d 0%, #549b94 42%, rgba(84,155,148,0) 72%),
+   radial-gradient(82% 68% at 10% 58%, #948ad2 0%, rgba(148,138,210,0) 56%),
+   radial-gradient(95% 72% at 22% 102%, #e7a7bf 0%, rgba(231,167,191,0) 56%),
+   radial-gradient(95% 82% at 98% 96%, #f4caa6 0%, rgba(244,202,166,0) 56%),
+   linear-gradient(160deg, #eec7c0, #ddccae 50%, #ecd4c0)}
 .notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:108px;height:26px;background:#0e0e0e;border-radius:99px;z-index:60}
 .statusbar{position:absolute;top:0;left:0;right:0;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:13px;font-weight:800;color:var(--text);z-index:55}
 .viewport{position:absolute;top:46px;left:0;right:0;bottom:92px;overflow-y:auto;padding:8px 22px 30px;scroll-behavior:smooth}
@@ -255,8 +263,8 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
       <!-- HOME -->
       <section class="view active" id="v-home">
         <div class="greet">
-          <div class="av"><img src="https://i.pravatar.cc/120?img=47" onerror="this.parentNode.textContent='🙂'"></div>
-          <div class="gt"><b>Hi, Ariel 👋</b><small>2026年6月29日 · 週一</small></div>
+          <div class="av" onclick="go('profile')" style="cursor:pointer"><img src="https://i.pravatar.cc/120?img=47" onerror="this.parentNode.textContent='🙂'"></div>
+          <div class="gt" onclick="go('profile')" style="cursor:pointer"><b>Hi, Ariel 👋</b><small>2026年6月29日 · 週一</small></div>
           <div class="bell" onclick="go('records')">🔔</div>
         </div>
 
@@ -363,7 +371,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
       <!-- COMMUNITY (圈圈) -->
       <section class="view" id="v-community">
         <div id="circleList">
-          <div style="display:flex;align-items:center;gap:10px;margin:2px 0 6px"><button class="cal-nav" style="display:flex"><button onclick="go('home')" style="width:38px;height:38px;border-radius:13px;border:none;background:#f2f5f4;font-size:18px;cursor:pointer;font-weight:800">←</button></button><span class="pagetitle" style="margin:0">飼主圈圈</span></div>
+          <div class="pagetitle">飼主圈圈</div>
           <div class="pagesub">依品種・地區・主題加入社群</div>
           <div class="seg" id="circleFilter"><button class="on active" data-c="all">🐾 全部</button><button data-c="breed">🦴 品種</button><button data-c="region">📍 地區</button><button data-c="topic">💡 主題</button></div>
           <div id="circleCards"></div>
@@ -398,7 +406,7 @@ body{min-height:100vh;color:var(--text);-webkit-font-smoothing:antialiased;
         <button data-view="health"><svg viewBox="0 0 24 24"><path d="M12 20C6 16 3 12.5 3 9a4 4 0 0 1 7-2.6A4 4 0 0 1 21 9c0 3.5-3 7-9 11z"/></svg>Health</button>
         <span class="navgap"></span>
         <button data-view="vet"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>Vet</button>
-        <button data-view="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</button>
+        <button data-view="community"><svg viewBox="0 0 24 24"><path d="M4 6h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3a2 2 0 0 1-1-2V8a2 2 0 0 1 2-2z"/><path d="M8.5 9.5h6M8.5 12h4"/></svg>圈圈</button>
       </nav>
       <button class="addbtn" onclick="openSheet()">＋</button>
       <div class="addlbl">Add</div>
